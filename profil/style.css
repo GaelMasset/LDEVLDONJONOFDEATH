@@ -1,0 +1,14 @@
+#iconeProfil{
+    display: block;
+    max-height: 100%;
+    max-width: 100%;
+    margin: 0px;
+}
+
+#pseudo{
+    font-size: 1.5em;
+
+}
+#dateCompte{
+    font-size: 0.8em;
+}
