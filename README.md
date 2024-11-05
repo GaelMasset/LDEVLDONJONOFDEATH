@@ -13,5 +13,5 @@
 
   * Mise en place d'un MVC
   * Utilisation de PHP, JS, HTML et CSS
-  * Gestion d'une base de donnée
+  * Gestion d'une base de données
   * Utilisation de DBeaver

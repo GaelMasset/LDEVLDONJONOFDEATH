@@ -40,7 +40,8 @@ class Router
             $controller->$methodName();
         } else {
             // Gestion des erreurs (page 404, etc.)
-            echo '<h2>la page demandée n\'existe pas</h2>';
+            $controller = new Erreur404Controller();
+            $controller->index();
         }
     }
 }
