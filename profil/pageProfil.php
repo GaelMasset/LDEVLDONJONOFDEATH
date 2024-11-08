@@ -35,6 +35,7 @@ $mail = $_SESSION['mail'];
 $logged_in = $_SESSION['logged_in'];
 ?>
 <main>
+    <?php include '../header/header.php' ?>
     <div class="div-stats-profil">
         <!-- Partie de gauche !-->
         <div class="child-stats-profil">
@@ -71,7 +72,6 @@ $logged_in = $_SESSION['logged_in'];
 
 <?php
 $pseudo = $_SESSION['username'];
-echo $pseudo;
 ?>
 
 <script></script>
