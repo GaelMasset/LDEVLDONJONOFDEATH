@@ -79,7 +79,7 @@ body{
     margin-left: auto;
     margin-right: auto;
     
-    background-color: antiquewhite;
+   
 }
 
 
@@ -100,3 +100,10 @@ body{
     height: 100%;
 }
 
+.formulaireStyle{
+    display: flex;
+    flex-direction: column;
+}
+.formulaireStyle > label{
+    float: left;
+}

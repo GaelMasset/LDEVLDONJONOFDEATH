@@ -22,12 +22,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
         $stmt->execute(['username' => $username, 'password' => $password, 'mail' => $mail, 'prenom' => $prenom, 'nom' => $nom, 'age' => $age]);
 
-        $_SESSION['username'] = $username;
-        $_SESSION['password'] = $password;
-        $_SESSION['mail'] = $mail;
-        $_SESSION['prenom'] = $prenom;
-        $_SESSION['nom'] = $nom;
-        $_SESSION['age'] = $age;
+
+        $sql = "SELECT * FROM compte WHERE pseudo = :username";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute(['username' => $username]);
+        $_SESSION['username'] = $stmt->fetchColumn();
+        $_SESSION['password'] = $stmt->fetchColumn();
+        $_SESSION['date_inscription'] = $stmt->fetchColumn();
+        $_SESSION['prenom'] = $stmt->fetchColumn();
+        $_SESSION['nom'] = $stmt->fetchColumn();
+        $_SESSION['age'] = $stmt->fetchColumn();
+        $_SESSION['mail'] = $stmt->fetchColumn();
         $_SESSION['logged_in'] = true;
 
         header('Location: /LDEVLDONJONOFDEATH/profil/pageProfil.php');

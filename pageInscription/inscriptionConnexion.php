@@ -37,7 +37,29 @@ session_start();
                 </div>
                 <div class="child-titre-par">
                     <div class="div-form">
+                    <form class="formulaireStyle" action="/LDEVLDONJONOFDEATH/pageInscription/traitementInscription.php" method="POST">
 
+                        <label for="username">Pseudo:</label>
+                        <input type="text" id="username" name="username" required>
+
+                        <label for="password">Mot de passe:</label>
+                        <input type="password" id="password" name="password" required>
+
+                        <label for="mail">Mail:</label>
+                        <input type="mail" id="mail" name="mail" required>
+
+                        <label for="prenom">Prenom:</label>
+                        <input type="prenom" id="prenom" name="prenom" required>
+
+                        <label for="nom">Nom:</label>
+                        <input type="nom" id="nom" name="nom" required>
+
+                        <label for="age">Age:</label>
+                        <input type="number" id="age" name="age" min="18" max="65">
+
+                        <input type="submit" value="Inscription">
+
+                        </form>
                     </div>
                 </div>
             </div>
@@ -51,51 +73,24 @@ session_start();
                     </div>
                 <div class="child-titre-par">
                     <div class="div-form">
-                        
+                        <form class="formulaireStyle" action="/LDEVLDONJONOFDEATH/pageInscription/traitementConnexion.php" method="POST">
+                            <label for="username">Pseudo:</label>
+                            <input type="text" id="username" name="username" required>
+                            
+                            <label for="password">Mot de passe:</label>
+                            <input type="password" id="password" name="password" required>
+                            
+                            <input type="submit" value="Connexion">
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-
-    <p>Se connecter : </p>
-    <form class="formulaireStyle" action="/LDEVLDONJONOFDEATH/pageInscription/traitementConnexion.php" method="POST">
-        <label for="username">Pseudo:</label>
-        <input type="text" id="username" name="username" required>
-        
-        <label for="password">Mot de passe:</label>
-        <input type="password" id="password" name="password" required>
-        
-        <input type="submit" value="Connexion">
-    </form>
-
-    <p>S'inscrire</p>
             
                 
-<form class="formulaireStyle" action="/LDEVLDONJONOFDEATH/pageInscription/traitementInscription.php" method="POST">
 
-    <label for="username">Pseudo:</label>
-    <input type="text" id="username" name="username" required>
-
-    <label for="password">Mot de passe:</label>
-    <input type="password" id="password" name="password" required>
-
-    <label for="mail">Mail:</label>
-    <input type="mail" id="mail" name="mail" required>
-
-    <label for="prenom">Prenom:</label>
-    <input type="prenom" id="prenom" name="prenom" required>
-
-    <label for="nom">Nom:</label>
-    <input type="nom" id="nom" name="nom" required>
-
-    <label for="age">Age:</label>
-    <input type="number" id="age" name="age" min="18" max="65">
-
-    <input type="submit" value="Inscription">
-
-</form>
   <script></script>
 </main>
 
