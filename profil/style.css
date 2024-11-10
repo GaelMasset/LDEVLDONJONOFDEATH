@@ -5,9 +5,22 @@
     margin: 0px;
 }
 
+#boutonForum{
+    margin-top: 25px;
+    min-width: 50%;
+    min-height: 20%;
+    background-color: #C4975E;
+    border: 3px solid #864f29;
+    border-radius: 3px;
+}
+#boutonForum:hover{
+    background-color: #cdc483;
+}
+
 #pseudo{
     font-size: 1.5em;
-
+    margin-top: 10px;
+    font-weight: 500;
 }
 #dateCompte{
     font-size: 0.8em;
@@ -23,4 +36,11 @@ text-decoration: none;
 }
 .lien > a:hover{
     text-decoration: underline;
+}
+
+#titreDroite{
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: 500;
+    margin-top: 10px;
 }
