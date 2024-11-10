@@ -12,7 +12,7 @@ if (isset($_GET['pseudo'])) {
         $stmt->bindParam(':pseudo', $pseudo, PDO::PARAM_STR);
         $stmt->execute();
 
-        header("Location: pageProfil.php");
+        header("Location: panelAdmin.php");
         exit;
 
     } catch (PDOException $e) {
