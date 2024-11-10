@@ -40,7 +40,7 @@ $logged_in = $_SESSION['logged_in'];
     <h1 class="titreDroite">Modifier votre profil</h1>
 
     <!-- Formulaire -->
-    <form action="update_profile.php" method="POST" class="form-profil">
+    <form action="updateprofile.php" method="POST" class="form-profil">
         <label for="username">Nom d'utilisateur :</label>
         <input type="text" id="username" name="username" value="<?php echo htmlspecialchars($username); ?>" required>
 
