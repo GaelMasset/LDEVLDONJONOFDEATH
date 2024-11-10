@@ -26,7 +26,6 @@ session_start();
   <title>Inscription/Connexion</title>
 </head>
 <main>
-    
     <div class="div-inscr-conn">
         <div class="child-inscr-conn">
             <div class="div-titre-par">

@@ -35,6 +35,7 @@ $mail = $_SESSION['mail'];
 $logged_in = $_SESSION['logged_in'];
 ?>
 <main>
+    <?php include'../header/header.php'; ?>
     <div class="div-stats-profil">
         <!-- Partie de gauche !-->
         <div class="child-stats-profil">
@@ -47,14 +48,23 @@ $logged_in = $_SESSION['logged_in'];
                         <div class="child-pp-info">
                             <?php
                                 echo '<div id="pseudo"> Bienvenue, ', $username ,'</div>';
-                                echo '<div id="dateCompte"> Compte créé le ', $date_inscription ,'</div>';
-
+                                if(ISSET($dateInscription)){
+                                    echo '<div id="dateCompte"> Compte créé le ', $date_inscription->format('Y-m-d H:i:s'),'</div>';
+                                }
                             ?>
                         </div>
                     </div>
                 </div>
                 <div class="child-pp-sous">
-                    aa
+                    <div class="lien">
+                        <?php
+                        if($_SESSION['isAdmin'] == true){
+                            echo'<a class="lien" href="../panelAdmin/panelAdmin.php">Panel Administrateur</a>';
+                        }
+                        ?>
+                        <br/>
+                        <a class="lien" href="#">Supprimer mon compte</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -63,16 +73,6 @@ $logged_in = $_SESSION['logged_in'];
             
         </div>
     </div>
-
-
-
-
-
-
-<?php
-$pseudo = $_SESSION['username'];
-echo $pseudo;
-?>
 
 <script></script>
 </main>
