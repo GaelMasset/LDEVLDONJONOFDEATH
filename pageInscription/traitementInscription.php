@@ -33,6 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['nom'] = $stmt->fetchColumn();
         $_SESSION['age'] = $stmt->fetchColumn();
         $_SESSION['mail'] = $stmt->fetchColumn();
+        $_SESSION['isAdmin'] = $stmt->fetchColumn();
         $_SESSION['logged_in'] = true;
 
         header('Location: /LDEVLDONJONOFDEATH/profil/pageProfil.php');

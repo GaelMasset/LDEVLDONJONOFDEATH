@@ -24,15 +24,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $sql = "SELECT * FROM compte WHERE pseudo = :username";
                 $stmt = $pdo->prepare($sql);
                 $stmt->execute(['username' => $username]);
-                //le mot de passe est correct, on connecte l'utilisateur
-                $_SESSION['username'] = $stmt->fetchColumn();
-                $_SESSION['password'] = $stmt->fetchColumn();
-                $_SESSION['date_inscription'] = $stmt->fetchColumn();
-                $_SESSION['prenom'] = $stmt->fetchColumn();
-                $_SESSION['nom'] = $stmt->fetchColumn();
-                $_SESSION['age'] = $stmt->fetchColumn();
-                $_SESSION['mail'] = $stmt->fetchColumn();
-                $_SESSION['logged_in'] = true;
+                $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+                $_SESSION['username'] = $user['pseudo'];
+                $_SESSION['password'] = $user['mdp'];
+                $_SESSION['date_inscription'] = $user['dateInscription'];
+                $_SESSION['prenom'] = $user['prenom'];
+                $_SESSION['nom'] = $user['nom'];
+                $_SESSION['age'] = $user['age'];
+                $_SESSION['mail'] = $user['mail'];
+                $_SESSION['isAdmin'] = $user['isAdmin'];
 
                 //redirection vers index.php
                 header('Location: /LDEVLDONJONOFDEATH/profil/pageProfil.php');
