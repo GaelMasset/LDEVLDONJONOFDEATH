@@ -19,8 +19,8 @@ session_start();
 
   <!-- Google Fonts !-->
 <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jacquarda+Bastarda+9&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Playwrite+DE+Grund:wght@100..400&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 
 
   <title>Mon profil</title>
@@ -52,25 +52,34 @@ $logged_in = $_SESSION['logged_in'];
                                     echo '<div id="dateCompte"> Compte créé le ', $date_inscription->format('Y-m-d H:i:s'),'</div>';
                                 }
                             ?>
+                            <button id="boutonForum">Accéder au forum</button>
                         </div>
                     </div>
                 </div>
                 <div class="child-pp-sous">
-                    <div class="lien">
-                        <?php
-                        if($_SESSION['isAdmin'] == true){
-                            echo'<a class="lien" href="../panelAdmin/panelAdmin.php">Panel Administrateur</a>';
-                        }
-                        ?>
-                        <br/>
-                        <a class="lien" href="#">Supprimer mon compte</a>
+                    <div class="div-modifCompte-reste">
+                        <div class="child-modifCompte-reste">
+                            <div class="lien">
+                                <?php
+                                if($_SESSION['isAdmin'] == true){
+                                    echo'<a class="lien" href="../panelAdmin/panelAdmin.php">Panel Administrateur</a><br/>';
+                                }
+                                ?>
+                                <a class="lien" href="modifCompte/modifCompte.php">Modifier mon compte</a>
+                                <br/>
+                                <a class="lien" href="#">Supprimer mon compte</a>
+                            </div>
+                        </div>
+                        <div class="child-modifCompte-reste">
+                            <h2>Partie en cours</h2>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
         <!-- Partie de droite !-->
         <div class="child-stats-profil">
-            
+            <h1 id="titreDroite">Statistiques</h1>
         </div>
     </div>
 
