@@ -74,6 +74,9 @@ $logged_in = $_SESSION['logged_in'];
         </div>
     </div>
 
+<?php
+$pseudo = $_SESSION['username'];
+?>
 <script></script>
 </main>
 
