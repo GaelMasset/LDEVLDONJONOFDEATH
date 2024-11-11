@@ -10,8 +10,8 @@ session_start();
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <link rel="stylesheet" href="styleFormulaireAjout.css" />
-  <link rel="stylesheet" href="../profil/modifCompte/style.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="../CSSForm.css" />
   
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -35,20 +35,43 @@ $isAdmin = $_SESSION['isAdmin'];
 ?>
 
 <main>
-    <?php include '../header/header.php'; 
+    <?php include '../../../header/header.php'; 
     if($isAdmin == false){
         header("Location: ../profil/pageProfil.php");
     }
     ?>
     
 
-    <h1 class="titre">Modifier votre profil</h1>
+    <h1 class="titre" id="titre">Ajouter un monstre</h1>
 
     <form action="updateprofile.php" method="POST" class="form-profil">
+        <label for="username">Id du monstre :</label>
+        <input type="text" id="id" name="id">
+
         <label for="username">Nom du monstre :</label>
         <input type="text" id="name" name="name">
 
+        <label for="username">PV :</label>
+        <input type="text" id="pv" name="pv">
         
+        <label for="username">MANA :</label>
+        <input type="text" id="mana" name="mana">
+
+        <label for="username">Initiative :</label>
+        <input type="text" id="initiative" name="initiative">
+
+        <label for="username">Force :</label>
+        <input type="text" id="strenght" name="strenght">
+
+        <label for="username">Attaque :</label>
+        <input type="text" id="attack" name="attack">
+
+        <label for="username">NE PAS REMPLIR//CE SERA LES LOOTS DU MONSTRE</label>
+        <input type="text" id="loot" name="loot">
+
+        <label for="username">XP a la mort :</label>
+        <input type="text" id="xp" name="xp">
+
         <button type="submit" class="btn">Ajouter le monstre</button>
     </form>
 </main>

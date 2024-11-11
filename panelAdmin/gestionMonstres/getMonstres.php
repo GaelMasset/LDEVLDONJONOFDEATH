@@ -50,7 +50,7 @@ foreach ($monstres as $monstre) {
 
 echo '<tr class="ligneAjoutMonstre">
             <td colspan="10">
-                <a href="ajouterMonstre.php" class="ajouterMonstreTxt">Ajouter un monstre</a>
+                <a href="gestionMonstres/ajouterMonstre/ajouterMonstre.php" class="ajouterMonstreTxt">Ajouter un monstre</a>
             </td>
         </tr>';
 

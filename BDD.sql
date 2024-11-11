@@ -139,12 +139,11 @@ CREATE TABLE Quest (
 );
 
 CREATE TABLE compte (
-    username VARCHAR(64),
-    password VARCHAR(64),
-    date_inscription DATETIME,
+    pseudo VARCHAR(64),
+    mdp VARCHAR(64),
+    dateInscription DATETIME,
     prenom VARCHAR(64),
     nom VARACHAR(64),
     age INT,
     mail VARCHAR(64)
-
 );
