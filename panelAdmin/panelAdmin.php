@@ -44,11 +44,13 @@ $logged_in = $_SESSION['logged_in'];
             <div class="div-gauche-droite">
                 <div class="child-gauche-droite">
                     <h2 id="titre">Liste des joueurs</h2>
-
-                    <?php include'listeJoueur.php'?>
+                    <?php include'gestionJoueurs/listeJoueur.php'?>
                 </div>
                 <div class="child-gauche-droite">
                     <h2 id="titre">Liste du contenu</h2>
+                    <div class="boxMonstres">
+                    <?php include 'gestionMonstres/getMonstres.php'; ?>
+                    </div>
                 </div>
             </div>
         </div>

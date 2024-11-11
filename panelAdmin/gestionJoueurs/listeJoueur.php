@@ -24,10 +24,10 @@ if ($stmt->rowCount() > 0) {
         $formatted_date = $date_inscription->format('Y-m-d H:i:s');
 
         echo '<tr>';
-        echo '<td>' . htmlspecialchars($row['pseudo']) . '</td>';
+        echo '<td>' . $row['pseudo'] . '</td>';
         echo '<td>' . $formatted_date . '</td>';
-        echo '<td>' . htmlspecialchars($row['prenom']) . '</td>';
-        echo '<td><a href="supprimerJoueur.php?pseudo=' . urlencode($row['pseudo']) . '" class="btn-supprimer">Supprimer</a></td>';
+        echo '<td>' . $row['prenom'] . '</td>';
+        echo '<td><a href="gestionJoueurs/supprimerJoueur.php?pseudo=' . $row['pseudo'] . '" class="btn-supprimer">Supprimer</a></td>';
         echo '</tr>';
     }
 
