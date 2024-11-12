@@ -36,7 +36,6 @@ $mail = $_SESSION['mail'];
 $logged_in = $_SESSION['logged_in'];
 ?>
 <main>
-    <?php include'../header/header.php'; ?>
     <div class="div-titre-reste">
         <div class="child-titre-reste">
             <h1 id="titre">Panel Administrateur</h1>

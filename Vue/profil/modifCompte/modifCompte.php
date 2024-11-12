@@ -33,9 +33,7 @@ $mail = $_SESSION['mail'];
 $logged_in = $_SESSION['logged_in'];
 ?>
 
-<main>
-    <?php include '../../header/header.php'; ?>
-    
+<main>    
     <h1 class="titreDroite">Modifier votre profil</h1>
 
     <!-- Formulaire -->

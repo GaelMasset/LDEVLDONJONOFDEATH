@@ -59,6 +59,12 @@ $router = new Router('LDEVLDONJONOFDEATH');
 
 // Ajout des routes
 $router->addRoute('', 'HomeController@index'); // Pour la racine
+$router->addRoute('profile', 'profileController@index');
+$router->addRoute('modifProfile', 'modifProfileController@index');
+$router->addRoute('panelAdmin', 'panelAdminController@index');
+$router->addRoute('login', 'inscriptionController@index');
+
+
 for($i = 1; $i < 3; $i++){
     $router->addRoute('chapter'.$i, 'ChapterController@index'.$i); // Pour le chapitre i
 }

@@ -26,18 +26,17 @@ session_start();
   <title>Inscription/Connexion</title>
 </head>
 <main>
-    <?php include '../header/header.php' ?>
-    <div class="div-inscr-conn">
-        <div class="child-inscr-conn">
-            <div class="div-titre-par">
-                <div class="child-titre-par">
-                    <div class="titre">
+    <div class="div-2-colonnes-50-50 fondBase txtBlanc">
+        <div class="child-2-colonnes-50-50 bordureDroite blanche">
+            <div class="div-texte-bloc">
+                <div class="child-texte-bloc">
+                    <div class="titre1">
                         Inscription
                     </div>
                 </div>
-                <div class="child-titre-par">
+                <div class="child-texte-bloc">
                     <div class="div-form">
-                    <form class="formulaireStyle" action="/LDEVLDONJONOFDEATH/pageInscription/traitementInscription.php" method="POST">
+                    <form class="formulaireAChaqueLigne" action="/LDEVLDONJONOFDEATH/pageInscription/traitementInscription.php" method="POST">
 
                         <label for="username">Pseudo:</label>
                         <input type="text" id="username" name="username" required>
@@ -64,16 +63,16 @@ session_start();
                 </div>
             </div>
         </div>
-        <div class="child-inscr-conn">
-        <div class="div-titre-par">
-                <div class="child-titre-par">
-                    <div class="titre">
+        <div class="child-2-colonnes-50-50 bordureGauche blanche">
+            <div class="div-texte-bloc">
+                <div class="child-texte-bloc">
+                    <div class="titre1">
                             Connexion
                         </div>
                     </div>
-                <div class="child-titre-par">
+                <div class="child-texte-bloc">
                     <div class="div-form">
-                        <form class="formulaireStyle" action="/LDEVLDONJONOFDEATH/pageInscription/traitementConnexion.php" method="POST">
+                        <form class="formulaireAChaqueLigne" action="/LDEVLDONJONOFDEATH/pageInscription/traitementConnexion.php" method="POST">
                             <label for="username">Pseudo:</label>
                             <input type="text" id="username" name="username" required>
                             
@@ -93,5 +92,12 @@ session_start();
 
   <script></script>
 </main>
+
+<style>
+<?php 
+include __DIR__ . '/../../styles/flexboxs/flexboxsGeneral.css'; 
+include __DIR__ . '/../../styles/styleGeneral.css';
+include __DIR__ . '/../../styles/styleInscription.css';  ?>
+</style>
 
 </html>

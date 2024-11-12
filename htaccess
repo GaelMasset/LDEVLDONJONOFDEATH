@@ -1,0 +1,3 @@
+RewriteEngine On
+RewriteBase /LDEVLDONJONOFDEATH/
+RewriteRule ^(.*)$ index.php [QSA,L]

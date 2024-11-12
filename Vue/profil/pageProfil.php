@@ -9,12 +9,9 @@ session_start();
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <link rel="stylesheet" href="style.css" />
 
-  <!-- CSS !-->
-  <link rel="stylesheet" href="flexboxs.css" />
-  <link rel="stylesheet" href="style.css" />
+
+
 
 
   <!-- Google Fonts !-->
@@ -35,51 +32,47 @@ $mail = $_SESSION['mail'];
 $logged_in = $_SESSION['logged_in'];
 ?>
 <main>
-    <?php include'../header/header.php'; ?>
-    <div class="div-stats-profil">
+    <div class="div-2-colonnes-50-50 fondBase txtBlanc">
         <!-- Partie de gauche !-->
-        <div class="child-stats-profil">
-            <div class="div-pp-sous">
-                <div class="child-pp-sous">
+        <div class="child-2-colonnes-50-50 bordureDroite bordBlanche">
+            <div class="div-2-lignes">
+                <div class="child-2-lignes h20">
                     <div class="div-pp-info">
                         <div class="child-pp-info">
                             <img src="Berserker.jpg" id="iconeProfil">
                         </div>
                         <div class="child-pp-info">
                             <?php
-                                echo '<div id="pseudo"> Bienvenue, ', $username ,'</div>';
-                                if(ISSET($dateInscription)){
-                                    echo '<div id="dateCompte"> Compte créé le ', $date_inscription->format('Y-m-d H:i:s'),'</div>';
-                                }
+                                echo '<div class="titre1"> Bienvenue, ', $username ,'</div>';
                             ?>
-                            <button id="boutonForum">Accéder au forum</button>
+                            <button class="boutonClickable">Accéder au forum</button>
                         </div>
                     </div>
                 </div>
-                <div class="child-pp-sous">
-                    <div class="div-modifCompte-reste">
-                        <div class="child-modifCompte-reste">
-                            <div class="lien">
+                <div class="child-2-lignes hReste">
+                    <div class="div-texte-bloc">
+                        <div class="child-texte-bloc">
+                            <div>
                                 <?php
                                 if($_SESSION['isAdmin'] == true){
-                                    echo'<a class="lien" href="../panelAdmin/panelAdmin.php">Panel Administrateur</a><br/>';
+                                    echo'<a class="lienSimple" href="../panelAdmin">Panel Administrateur</a><br/>';
                                 }
                                 ?>
-                                <a class="lien" href="modifCompte/modifCompte.php">Modifier mon compte</a>
+                                <a class="lienSimple" href="../modifProfile">Modifier mon compte</a>
                                 <br/>
-                                <a class="lien" href="#">Supprimer mon compte</a>
+                                <a class="lienSimple" href="#">Supprimer mon compte</a>
                             </div>
                         </div>
-                        <div class="child-modifCompte-reste">
-                            <h2>Partie en cours</h2>
+                        <div class="child-texte-bloc">
+                            <h2 class="titre1">Partie en cours</h2>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <!-- Partie de droite !-->
-        <div class="child-stats-profil">
-            <h1 id="titreDroite">Statistiques</h1>
+        <div class="child-2-colonnes-50-50 bordureGauche bordBlanche">
+            <h1 class="titre1">Statistiques</h1>
         </div>
     </div>
 
@@ -88,5 +81,12 @@ $pseudo = $_SESSION['username'];
 ?>
 <script></script>
 </main>
+
+<style>
+<?php 
+include __DIR__ . '/../../styles/flexboxs/flexboxsGeneral.css'; 
+include __DIR__ . '/../../styles/flexboxs/flexboxsPageProfile.css'; 
+include __DIR__ . '/../../styles/styleGeneral.css';  ?>
+</style>
 
 </html>
