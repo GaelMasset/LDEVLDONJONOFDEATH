@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <?php require '../../header/header.php' ?>
-        <link rel="stylesheet" href="style_character.css">
+        <link rel="stylesheet" href="style_CreationPersonnage.css">
         <title>Création de personnage</title>
     </head>
     <body>
@@ -29,7 +29,7 @@
             <label for="optionVoleur" class="classeOption">La voie du Voleur
                 <img id="imgVoleur" alt="La voie du Voleur" src="../../images/Thief.jpg">
             </label>
-            <input name = "classe" type="image" id="optionVoleur" value="option3" hidden>
+            <input name = "classe" type="radio" id="optionVoleur" value="option3" hidden>
 
             <!-- Choix du nom -->
             <p>Quel nom entrera dans la légende ?</p></br>
