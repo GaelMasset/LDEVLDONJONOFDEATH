@@ -1,3 +1,7 @@
+<style>
+    <?php require_once "styles/erreur_404.css";?>
+</style>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -6,10 +10,6 @@
     <title>Erreur 404</title>
 </head>
 <body>
-    <style>
-        <?php require_once "styles/erreur_404.css";?>
-    </style>
-    <br><br><br><br>
     <label>ERREUR 404</label>
 </body>
 </html>
