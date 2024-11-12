@@ -5,3 +5,7 @@
     <li hidden><a href="#">Compte</a>
     <li>
 </ul>
+
+<style>
+    <?php require_once 'styles/header.css';?>
+</style>
