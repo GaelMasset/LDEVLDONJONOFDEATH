@@ -33,16 +33,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $_SESSION['nom'] = $user['nom'];
                 $_SESSION['age'] = $user['age'];
                 $_SESSION['mail'] = $user['mail'];
+                $_SESSION['logged_in'] = true;
                 $_SESSION['isAdmin'] = $user['isAdmin'];
 
                 //redirection vers index.php
                 header('Location: /LDEVLDONJONOFDEATH/profil/pageProfil.php');
                 exit();
             } else {
-                echo "Mot de passe incorrect.";
+                header('Location: /LDEVLDONJONOFDEATH/pageInscription/inscriptionConnexion.php');
+            exit();
             }
         } else {
-            echo "Cet utilisateur n'existe pas.";
+            header('Location: /LDEVLDONJONOFDEATH/pageInscription/inscriptionConnexion.php');
+            exit();
         }
     } catch (PDOException $e) {
     }

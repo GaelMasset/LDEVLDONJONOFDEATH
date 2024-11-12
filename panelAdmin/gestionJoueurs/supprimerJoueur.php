@@ -3,7 +3,7 @@ if (isset($_GET['pseudo'])) {
     $pseudo = $_GET['pseudo'];
 
     try {
-        include_once('../bdd.php');
+        include_once('../../bdd.php');
         $pdo = new PDO($dsn, $user, $pass);
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -12,7 +12,7 @@ if (isset($_GET['pseudo'])) {
         $stmt->bindParam(':pseudo', $pseudo, PDO::PARAM_STR);
         $stmt->execute();
 
-        header("Location: pageProfil.php");
+        header("Location: ../panelAdmin.php");
         exit;
 
     } catch (PDOException $e) {

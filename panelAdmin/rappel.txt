@@ -1,0 +1,3 @@
+a faire encore:
+Mettre des verifs que l'on est admin au début de chaque fichier
+Faire gaffe aux duplicatas d'id lors d'insertion / de modif
