@@ -58,6 +58,10 @@ $router = new Router('LDEVLDONJONOFDEATH');
 
 // Ajout des routes
 $router->addRoute('', 'HomeController@index'); // Pour la racine
+for($i = 1; $i < 3; $i++){
+    $router->addRoute('chapter'.$i, 'ChapterController@index'.$i); // Pour le chapitre i
+}
+
 
 // Appel de la méthode route
 
