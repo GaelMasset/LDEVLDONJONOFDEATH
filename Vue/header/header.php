@@ -1,3 +1,12 @@
+<ul class="nav_bar">
+    <li><a href="#">Accueil</a></li>
+    <li><a href="#">À propos</a></li>
+    <li id="connex"><a href="#">Connexion</a></li>
+    <li hidden><a href="#">Compte</a>
+    <li>
+</ul>
+
+
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Frijole&family=Pirata+One&display=swap');
 
@@ -34,12 +43,3 @@
 }
 
 </style>
-
-
-<ul class="nav_bar">
-    <li><a href="#">Accueil</a></li>
-    <li><a href="#">À propos</a></li>
-    <li id="connex"><a href="#">Connexion</a></li>
-    <li hidden><a href="#">Compte</a>
-    <li>
-</ul>
