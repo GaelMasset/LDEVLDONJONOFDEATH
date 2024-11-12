@@ -6,7 +6,9 @@
     <title>Erreur 404</title>
 </head>
 <body>
-    <?php require_once realpath($_SERVER["DOCUMENT_ROOT"]) . "/LDEVLDONJONOFDEATH/Vue/header/header.php"; ?>
+    <style>
+        <?php require_once "styles/erreur_404.css";?>
+    </style>
     <br><br><br><br>
     <label>ERREUR 404</label>
 </body>

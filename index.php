@@ -1,10 +1,3 @@
-
-
-<style>
-    <?php require_once 'styles/header.css';?>
-</style>
-
-
 <?php
 
 ini_set('display_errors', 1);
