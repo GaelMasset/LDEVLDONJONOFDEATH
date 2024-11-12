@@ -16,17 +16,17 @@
             <!-- Choix de la classe -->
             <p>Quelle voie choisirez-vous ?</p>
 
-            <label for="optionGuerrier">La voie du Guerrier
+            <label for="optionGuerrier" class="classeOption">La voie du Guerrier
                 <img id = "imgGuerrier" alt="La voie du Guerrier" src="../../images/Berserker.jpg">
             </label>
             <input name = "classe" type="radio" id="optionGuerrier" value="option1" hidden>
 
-            <label for="optionMage">La voie du Mage
+            <label for="optionMage" class="classeOption">La voie du Mage
                 <img id="imgMage" alt="La voie du Mage" src="../../images/Magician02.jpg">
             </label>
             <input name = "classe" type="radio" id="optionMage" value="option2" hidden>
 
-            <label for="optionVoleur">La voie du Voleur
+            <label for="optionVoleur" class="classeOption">La voie du Voleur
                 <img id="imgVoleur" alt="La voie du Voleur" src="../../images/Thief.jpg">
             </label>
             <input name = "classe" type="image" id="optionVoleur" value="option3" hidden>
