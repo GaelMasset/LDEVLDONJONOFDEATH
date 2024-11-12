@@ -1,8 +1,32 @@
-h1{
-    color: red;
+
+
+body{
+  background-color: #1A1A1A;
+  height: 100%;
+  width: 100%;
+  
 }
 
-/* Sidenav menu */
+h1,h2,h3,h4,h5,h6{
+  font-family: "Pirata One";
+  color:#E5E5E5;
+  text-align: center;
+}
+
+p,span,label{
+  color: #BFBFBF;
+}
+
+/* Icône burger */
+.burger-icon span {
+  display: block;
+  width: 35px;
+  height: 5px;
+  background-color: #C4975E;
+  margin: 6px ;
+}
+
+/* detail menu burger */
 .sidenav {
     height: 100%;
     width: 250px;
@@ -10,37 +34,29 @@ h1{
     z-index: 1;
     top: 0;
     left: -250px;
-    background-color: #e8e8e8;
+    background-color: #2E2E2E;
     padding-top: 60px;
     transition: left 0.5s ease;
   }
-  
-  /* Sidenav menu links */
   .sidenav a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
     font-size: 25px;
-    color: #818181;
     display: block;
     transition: 0.3s;
+    color: #C4975E;
   }
-  
   .sidenav a:hover {
-    color: #111;
+    color: #4A7A66;
   }
-  
   .sidenav ul {
     list-style-type: none;
     padding: 0;
     margin: 0;
   }
-  
-  /* Active class */
   .sidenav.active {
     left: 0;
   }
-  
-  /* Close btn */
   .sidenav .close {
     position: absolute;
     top: 0;
@@ -48,56 +64,43 @@ h1{
     font-size: 36px;
   }
   
-  /* Icône burger */
-  .burger-icon span {
-    display: block;
-    width: 35px;
-    height: 5px;
-    background-color: black;
-    margin: 6px 0;
-  }
   
-*{
-    padding: 0;
-    margin: 0;
-}
+  
 
-#popup-overlay{
-    position: fixed;
-    top:0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgba(0,0,0,0,7);
-    z-index: 98;
-    display: none;
-}
+/*popup*/
+#popupOverlay {
+  position: absolute;
+  visibility: hidden;
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  background-color: rgba(26,26,26,0.7);
+  text-align: center;
+  }
 
-#popup-overlay.open{
-    display: block !important;
-}
 
-.popup-content{
+  .popupContent{
     max-width: 600px;
     width: 100%;
-    padding: 30px;
+    padding: 10px;
     box-sizing: border-box;
-    background: #fff;
+    background: #2E2E2E;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
-}
+    border-radius: 2vw;
+    border: 1.5px solid #C4975E;
+  }
 
-.popup-content p{
+  .popupContent p{
     margin: 20px 0;
-}
+  }
 
-.popup-link{
+  .popupLink{
     text-decoration: none;
-    color: #fff;
-    background: #000;
+    color:#C4975E;
     padding: 10px 20px;
     border-radius: 5px;
     display: inline-block;
-}
+  }

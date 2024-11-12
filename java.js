@@ -1,21 +1,35 @@
 var sidenav = document.getElementById("mySidenav");
 var openBtn = document.getElementById("openBtn");
 var closeBtn = document.getElementById("closeBtn");
+var openPop = document.getElementById("ouvrirPop");
+var closePop = document.getElementById("fermerPop");
+var affichePop = document.getElementById("popupOverlay");
+
 
 openBtn.onclick = openNav;
 closeBtn.onclick = closeNav;
 
-/* Set the width of the side navigation to 250px */
+/* ouvre le burgeur */
 function openNav() {
   sidenav.classList.add("active");
 }
 
-/* Set the width of the side navigation to 0 */
+/* ferme le burgeur */
 function closeNav() {
   sidenav.classList.remove("active");
 }
 
-function togglegroup(){
-    let popup = document.getElementById(pop);
-    popup.classList.toggle("open");
+
+openPop.onclick = openPopUp;
+closePop.onclick = closePopUp;
+
+
+/* ouvre le burgeur */
+function openPopUp() {
+  affichePop.style.visibility = "visible";
+}
+
+/* ferme le burgeur */
+function closePopUp() {
+  affichePop.style.visibility = "hidden";
 }
