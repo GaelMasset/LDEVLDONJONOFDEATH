@@ -1,0 +1,10 @@
+.titreDroite{
+    text-align: center;
+}
+
+#photoActuelle{
+    display: block;
+    max-height: 30%;
+    max-width: 30%;
+    margin: 0px;
+}

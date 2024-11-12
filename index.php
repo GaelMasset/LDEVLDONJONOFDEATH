@@ -1,3 +1,10 @@
+
+
+<style>
+    <?php require_once 'styles/header.css';?>
+</style>
+
+
 <?php
 
 ini_set('display_errors', 1);
@@ -40,7 +47,8 @@ class Router
             $controller->$methodName();
         } else {
             // Gestion des erreurs (page 404, etc.)
-            echo '<h2>la page demandée n\'existe pas</h2>';
+            $controller = new Erreur404Controller();
+            $controller->index();
         }
     }
 }
@@ -51,6 +59,9 @@ $router = new Router('LDEVLDONJONOFDEATH');
 // Ajout des routes
 $router->addRoute('', 'HomeController@index'); // Pour la racine
 $router->addRoute('battle', 'BattleController@index'); // Pour la racine
+for($i = 1; $i < 3; $i++){
+    $router->addRoute('chapter'.$i, 'ChapterController@index'.$i); // Pour le chapitre i
+}
 
 
 // Appel de la méthode route
