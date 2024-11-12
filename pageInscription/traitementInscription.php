@@ -15,6 +15,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $nom = $_POST['nom'];
         $age = $_POST['age'];
 
+        //verifier que personne a deja le pseudo
+        $sql = "SELECT * FROM compte WHERE pseudo = :username";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute(['username' => $username]);
+        if ($stmt->rowCount() > 0) {
+            header('Location: /LDEVLDONJONOFDEATH/pageInscription/inscriptionConnexion.php');
+            exit();
+        }
 
 
         $sql = "INSERT INTO compte (pseudo, mdp, dateInscription, prenom, nom, age, mail) VALUES (:username, :password, now(), :prenom, :nom, :age, :mail)";
@@ -26,14 +34,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $sql = "SELECT * FROM compte WHERE pseudo = :username";
         $stmt = $pdo->prepare($sql);
         $stmt->execute(['username' => $username]);
+
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
         $_SESSION['username'] = $user['pseudo'];
-                $_SESSION['password'] = $user['mdp'];
-                $_SESSION['date_inscription'] = $user['dateInscription'];
-                $_SESSION['prenom'] = $user['prenom'];
-                $_SESSION['nom'] = $user['nom'];
-                $_SESSION['age'] = $user['age'];
-                $_SESSION['mail'] = $user['mail'];
-                $_SESSION['isAdmin'] = $user['isAdmin'];
+        $_SESSION['password'] = $user['mdp'];
+        $_SESSION['date_inscription'] = $user['dateInscription'];
+        $_SESSION['prenom'] = $user['prenom'];
+        $_SESSION['nom'] = $user['nom'];
+        $_SESSION['age'] = $user['age'];
+        $_SESSION['mail'] = $user['mail'];
+        $_SESSION['logged_in'] = true;
+        $_SESSION['isAdmin'] = $user['isAdmin'];
 
         header('Location: /LDEVLDONJONOFDEATH/profil/pageProfil.php');
         exit();

@@ -146,4 +146,5 @@ CREATE TABLE compte (
     nom VARACHAR(64),
     age INT,
     mail VARCHAR(64)
+    isAdmin BOOLEAN;
 );

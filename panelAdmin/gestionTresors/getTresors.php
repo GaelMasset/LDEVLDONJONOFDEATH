@@ -42,6 +42,7 @@ foreach ($monstres as $monstre) {
             <td>' . $monstre['loot_id'] . '</td>
             <td>' . $monstre['xp'] . '</td>
             <td>
+                <a href="modifMonstre.php?id=' . $monstre['id'] . '">Modifier</a> | 
                 <a href="suppriMonstre.php?id=' . $monstre['id'] . '">Supprimer</a>
             </td>
         </tr>';
@@ -56,4 +57,39 @@ echo '<tr class="ligneAjoutMonstre">
 echo '</tbody></table>';
 ?>
 
+<style>
+    .table-monstres {
+        width: 100%;
+        margin-top: 0px;
+    }
 
+    .table-monstres th, .table-monstres td {
+        padding: 4px;
+        padding-top: 2px;
+        padding-bottom: 2px;
+        text-align: center;
+        border: 1px solid #ddd;
+    }
+
+    .table-monstres th {
+        background-color: white;
+    }
+
+    .ligneAjoutMonstre {
+        background-color: #f9f9f9;
+        border-top: 2px solid #ddd;
+        position: sticky;
+        bottom: 0;
+        left: 0;
+    }
+
+    .ajouterMonstreTxt {
+        color: black;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+
+   
+</style>

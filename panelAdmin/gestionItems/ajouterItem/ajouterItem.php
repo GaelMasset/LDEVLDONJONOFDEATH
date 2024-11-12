@@ -44,35 +44,17 @@ $isAdmin = $_SESSION['isAdmin'];
 
     <h1 class="titre" id="titre">Ajouter un monstre</h1>
 
-    <form action="traitementAjoutMonstre.php" method="POST" class="form-profil">
-        <label for="username">Id du monstre :</label>
+    <form action="traitementAjoutItem.php" method="POST" class="form-profil">
+        <label for="username">Id de l'item :</label>
         <input type="text" id="id" name="id">
 
-        <label for="username">Nom du monstre :</label>
+        <label for="username">Nom de l'item :</label>
         <input type="text" id="name" name="name">
 
-        <label for="username">PV :</label>
-        <input type="text" id="pv" name="pv">
-        
-        <label for="username">MANA :</label>
-        <input type="text" id="mana" name="mana">
+        <label for="username">Description de l'item :</label>
+        <input type="text" id="description" name="description">
 
-        <label for="username">Initiative :</label>
-        <input type="text" id="initiative" name="initiative">
-
-        <label for="username">Force :</label>
-        <input type="text" id="strength" name="strength">
-
-        <label for="username">Attaque :</label>
-        <input type="text" id="attack" name="attack">
-
-        <label for="username">NE PAS REMPLIR//CE SERA LES LOOTS DU MONSTRE</label>
-        <input type="text" id="loot" name="loot">
-
-        <label for="username">XP a la mort :</label>
-        <input type="text" id="xp" name="xp">
-
-        <button type="submit" class="btn">Ajouter le monstre</button>
+        <button type="submit" class="btn">Ajouter l'item</button>
     </form>
 </main>
 

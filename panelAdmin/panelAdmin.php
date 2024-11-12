@@ -14,6 +14,7 @@ session_start();
 
   <!-- CSS !-->
   <link rel="stylesheet" href="flexboxs.css" />
+  <link rel="stylesheet" href="styleFormulaireAjout.css" />
   <link rel="stylesheet" href="style.css" />
 
 
@@ -48,9 +49,18 @@ $logged_in = $_SESSION['logged_in'];
                 </div>
                 <div class="child-gauche-droite">
                     <h2 id="titre">Liste du contenu</h2>
-                    <div class="boxMonstres">
-                    <?php include 'gestionMonstres/getMonstres.php'; ?>
+
+                    <h3>Monstres</h3>
+                    <div class="boxMonstres">   
+                        <?php include 'gestionMonstres/getMonstres.php'; ?>
                     </div>
+
+                    <h3>Items</h3>
+                    <div class="boxMonstres">   
+                        <?php include 'gestionItems/getItems.php'; ?>
+                    </div>
+
+                    
                 </div>
             </div>
         </div>
