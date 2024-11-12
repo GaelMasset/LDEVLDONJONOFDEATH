@@ -1,8 +1,21 @@
-$heros = {
-    
+let heros = {  
+    name = name;
+    image = image;
+    classe = classe;
+    pv = pv;
+    initiative = initiative;
+    force = force;
+    mana = mana;
+    armure = armure;
+    arme1 = arme1;
+    arme2 = arme2;
+    bouclier = bouclier;
+    xp = xp;
+    spell_list = spell_list;
+    current_level = current_level;
 }
 
-$monstre = {
+let monstre = {
     nom: "",
     pv: 0,
     initiative: 0,
@@ -31,5 +44,7 @@ function initialiserHeros(name, image, classe, pv, initiative, force, mana, armu
     $heros.current_level = current_level;
 
 }
+
+function 
 
 console.log('a');

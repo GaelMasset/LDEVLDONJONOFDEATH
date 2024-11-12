@@ -4,6 +4,6 @@
 
 </head>
 <body>
-    <script src="../Script/combat.js"></script>
+    <script><?php require_once 'Script/combat.js'?></script>
 </body>
 </HTML>
