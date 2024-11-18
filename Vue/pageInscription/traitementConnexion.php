@@ -37,14 +37,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $_SESSION['isAdmin'] = $user['isAdmin'];
 
                 //redirection vers index.php
-                header('Location: /LDEVLDONJONOFDEATH/profil/pageProfil.php');
+                header('Location: profile');
                 exit();
             } else {
-                header('Location: /LDEVLDONJONOFDEATH/pageInscription/inscriptionConnexion.php');
+                header('Location: login');
             exit();
             }
         } else {
-            header('Location: /LDEVLDONJONOFDEATH/pageInscription/inscriptionConnexion.php');
+            header('Location: login');
             exit();
         }
     } catch (PDOException $e) {

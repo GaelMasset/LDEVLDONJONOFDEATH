@@ -1,5 +1,5 @@
 <?php
-include_once('../bdd.php'); 
+include_once(__DIR__ . '/../../../bdd.php'); 
 $pdo = new PDO($dsn, $user, $pass);
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 

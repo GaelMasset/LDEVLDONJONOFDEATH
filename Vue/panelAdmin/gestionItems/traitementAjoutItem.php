@@ -1,6 +1,5 @@
 <?php
 session_start();
-include_once ('../../../bdd.php');
 
 
 try {
@@ -15,7 +14,7 @@ try {
     $stmt = $pdo->prepare($sql);
     $stmt->execute(['id' => $id]);
     if ($stmt->rowCount() > 0) {
-        header('Location: /LDEVLDONJONOFDEATH/panelAdmin/panelAdmin.php');
+        header('Location: panelAdmin');
         exit();
     }
     
@@ -23,7 +22,7 @@ try {
     $stmt = $pdo->prepare($sql);
     $stmt->execute(['id' => $id, 'name' => $name, 'description' => $description]);
 
-    header('Location: /LDEVLDONJONOFDEATH/panelAdmin/panelAdmin.php');
+    header('Location: panelAdmin');
     exit();
 
 }catch (Exception $e) {

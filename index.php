@@ -59,10 +59,20 @@ $router = new Router('LDEVLDONJONOFDEATH');
 
 // Ajout des routes
 $router->addRoute('', 'HomeController@index'); // Pour la racine
+
+
 $router->addRoute('profile', 'profileController@index');
+$router->addRoute('traitementConnexion', 'traitementConnexionController@index');
+$router->addRoute('traitementInscription', 'traitementInscriptionController@index');
 $router->addRoute('modifProfile', 'modifProfileController@index');
 $router->addRoute('panelAdmin', 'panelAdminController@index');
 $router->addRoute('login', 'inscriptionController@index');
+$router->addRoute('ajouterItem', 'AddItemController@index');
+$router->addRoute('ajouterItemTraitement', 'AddItemTraitementController@index');
+$router->addRoute('ajouterLoot', 'AddLootController@index');
+$router->addRoute('ajouterLootTraitement', 'AddLootTraitementController@index');
+$router->addRoute('ajouterMonstre', 'AddMonsterController@index');
+$router->addRoute('ajouterMonstreTraitement', 'AddMonsterTraitementController@index');
 
 
 for($i = 1; $i < 3; $i++){

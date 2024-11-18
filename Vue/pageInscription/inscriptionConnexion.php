@@ -36,7 +36,7 @@ session_start();
                 </div>
                 <div class="child-texte-bloc">
                     <div class="div-form">
-                    <form class="formulaireAChaqueLigne" action="/LDEVLDONJONOFDEATH/pageInscription/traitementInscription.php" method="POST">
+                    <form class="formulaireAChaqueLigne" action="traitementInscription" method="POST">
 
                         <label for="username">Pseudo:</label>
                         <input type="text" id="username" name="username" required>
@@ -72,7 +72,7 @@ session_start();
                     </div>
                 <div class="child-texte-bloc">
                     <div class="div-form">
-                        <form class="formulaireAChaqueLigne" action="/LDEVLDONJONOFDEATH/pageInscription/traitementConnexion.php" method="POST">
+                        <form class="formulaireAChaqueLigne" action="traitementConnexion" method="POST">
                             <label for="username">Pseudo:</label>
                             <input type="text" id="username" name="username" required>
                             

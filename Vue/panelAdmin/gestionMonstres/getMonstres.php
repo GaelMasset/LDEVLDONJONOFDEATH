@@ -1,5 +1,5 @@
 <?php
-include '../bdd.php';
+include_once(__DIR__ . '/../../../bdd.php'); 
 
 try {
     $pdo = new PDO($dsn, $user, $pass);
@@ -13,7 +13,7 @@ $stmt = $pdo->query($query);
 $monstres = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 echo '
-    <table class="table-monstres">
+    <table class="table-ordonnee">
         <thead>
             <tr>
                 <th>ID</th>
@@ -47,9 +47,9 @@ foreach ($monstres as $monstre) {
         </tr>';
 }
 
-echo '<tr class="ligneAjoutMonstre">
+echo '<tr class="ligneAjout">
             <td colspan="10">
-                <a href="gestionMonstres/ajouterMonstre/ajouterMonstre.php" class="ajouterMonstreTxt">Ajouter un monstre</a>
+                <a href="ajouterMonstre" class="ajouterTxt">Ajouter un monstre</a>
             </td>
         </tr>';
 

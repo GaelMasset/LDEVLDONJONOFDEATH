@@ -8,7 +8,7 @@ try {
     die("Erreur de connexion à la base de données : " . $e->getMessage());
 }
 
-$query = "SELECT * FROM Items";
+$query = "SELECT * FROM Loot";
 $stmt = $pdo->query($query);
 $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -18,7 +18,8 @@ echo '
             <tr>
                 <th>ID</th>
                 <th>Nom</th>
-                <th>Description</th>
+                <th>ID Item lié</th>
+                <th>Quantité</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -28,8 +29,9 @@ foreach ($items as $item) {
     echo '<tr>
             <td>' . $item['id'] . '</td>
             <td>' . $item['name'] . '</td>
-            <td>' . $item['description'] . '</td>
-            
+            <td>' . $item['item_id'] . '</td>
+            <td>' . $item['quantity'] . '</td>
+
             <td>
                 <a href="suppriItem.php?id=' . $item['id'] . '">Supprimer</a>
             </td>
@@ -38,7 +40,7 @@ foreach ($items as $item) {
 
 echo '<tr class="ligneAjout">
             <td colspan="10">
-                <a href="ajouterItem" class="ajouterTxt">Ajouter un item</a>
+                <a href="ajouterLoot" class="ajouterTxt">Ajouter un loot</a>
             </td>
         </tr>';
 

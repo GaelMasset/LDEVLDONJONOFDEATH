@@ -35,46 +35,40 @@ $isAdmin = $_SESSION['isAdmin'];
 ?>
 
 <main>
-    <?php include '../../../header/header.php'; 
+    <?php
     if($isAdmin == false){
         header("Location: ../profil/pageProfil.php");
     }
     ?>
     
 
-    <h1 class="titre" id="titre">Ajouter un monstre</h1>
+    <h1 class="titre1" id="titre">Ajouter un loot</h1>
+<div class="div-form">
+    <form class="formulaireAChaqueLigne" action="ajouterLootTraitement" method="POST" class="form-profil">
+        <label class="titre2" for="id">Id du loot :</label>
+        <input type="number" id="id" name="id" required>
 
-    <form action="traitementAjoutMonstre.php" method="POST" class="form-profil">
-        <label for="username">Id du monstre :</label>
-        <input type="text" id="id" name="id">
+        <label class="titre2" for="name">Nom du loot :</label>
+        <input type="text" id="name" name="name" maxlength="32" pattern="[A-Za-zÀ-ÿ\s]+" required>
 
-        <label for="username">Nom du monstre :</label>
-        <input type="text" id="name" name="name">
+        <label class="titre2" for="idItem">ID de l'item lié :</label>
+        <input type="number" id="idItem" name="idItem" required>
 
-        <label for="username">PV :</label>
-        <input type="text" id="pv" name="pv">
-        
-        <label for="username">MANA :</label>
-        <input type="text" id="mana" name="mana">
+        <label class="titre2" for="qtt">Quantité :</label>
+        <input type="number" id="qtt" name="qtt" min="1" required>
 
-        <label for="username">Initiative :</label>
-        <input type="text" id="initiative" name="initiative">
-
-        <label for="username">Force :</label>
-        <input type="text" id="strength" name="strength">
-
-        <label for="username">Attaque :</label>
-        <input type="text" id="attack" name="attack">
-
-        <label for="username">NE PAS REMPLIR//CE SERA LES LOOTS DU MONSTRE</label>
-        <input type="text" id="loot" name="loot">
-
-        <label for="username">XP a la mort :</label>
-        <input type="text" id="xp" name="xp">
-
-        <button type="submit" class="btn">Ajouter le monstre</button>
+        <input type="submit" value="Ajouter le loot">
     </form>
+</div>
+
+</div>
 </main>
 
 </body>
+<style>
+<?php 
+include __DIR__ . '/../../../styles/flexboxs/flexboxsGeneral.css'; 
+include __DIR__ . '/../../../styles/styleGeneral.css';  ?>
+</style>
+
 </html>

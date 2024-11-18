@@ -1,7 +1,5 @@
 <?php
 session_start();
-include_once ('../../../bdd.php');
-
 
 try {
     $pdo = new PDO($dsn, $user, $pass);
@@ -13,6 +11,7 @@ try {
     $initiative = $_POST['initiative'];
     $strength = $_POST['strength'];
     $attack = $_POST['attack'];
+    $loot = $_POST['loot'];
     $xp = $_POST['xp'];
 
     //verifier que personne a deja le id
@@ -20,15 +19,15 @@ try {
     $stmt = $pdo->prepare($sql);
     $stmt->execute(['id' => $id]);
     if ($stmt->rowCount() > 0) {
-        header('Location: /LDEVLDONJONOFDEATH/panelAdmin/panelAdmin.php');
+        header('Location: panelAdmin');
         exit();
     }
     
-    $sql = "INSERT INTO monster (id, name, pv, mana, initiative, strength, attack, xp) VALUES (:id, :name, :pv, :mana, :initiative, :strength, :attack, :xp)";
+    $sql = "INSERT INTO monster (id, name, pv, mana, initiative, strength, attack, loot_id, xp) VALUES (:id, :name, :pv, :mana, :initiative, :strength, :attack, :loot, :xp)";
     $stmt = $pdo->prepare($sql);
-    $stmt->execute(['id' => $id, 'name' => $name, 'pv' => $pv, 'mana' => $mana, 'initiative' => $initiative, 'strength' => $strength, 'attack' => $attack, 'xp' => $xp]);
+    $stmt->execute(['id' => $id, 'name' => $name, 'pv' => $pv, 'mana' => $mana, 'initiative' => $initiative, 'strength' => $strength, 'attack' => $attack, 'loot' => $loot, 'xp' => $xp]);
 
-    header('Location: /LDEVLDONJONOFDEATH/panelAdmin/panelAdmin.php');
+    header('Location: panelAdmin');
     exit();
 
 }catch (Exception $e) {

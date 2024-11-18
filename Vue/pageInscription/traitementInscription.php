@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt = $pdo->prepare($sql);
         $stmt->execute(['username' => $username]);
         if ($stmt->rowCount() > 0) {
-            header('Location: /LDEVLDONJONOFDEATH/pageInscription/inscriptionConnexion.php');
+            header('Location: login');
             exit();
         }
 
@@ -47,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['logged_in'] = true;
         $_SESSION['isAdmin'] = $user['isAdmin'];
 
-        header('Location: /LDEVLDONJONOFDEATH/profil/pageProfil.php');
+        header('Location: profile');
         exit();
         
     } catch (Exception $e) {
