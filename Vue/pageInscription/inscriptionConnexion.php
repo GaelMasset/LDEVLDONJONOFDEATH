@@ -56,8 +56,7 @@ session_start();
                         <label for="age">Age:</label>
                         <input type="number" id="age" name="age" min="18" max="65">
 
-                        <input type="submit" value="Inscription">
-
+                        <input type="submit" value="Inscription"> 
                         </form>
                     </div>
                 </div>
