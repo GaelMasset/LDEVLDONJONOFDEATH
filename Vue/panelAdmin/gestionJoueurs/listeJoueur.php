@@ -8,7 +8,7 @@ $stmt = $pdo->prepare($sql);
 $stmt->execute();
 
 if ($stmt->rowCount() > 0) {
-    echo '<table>';
+    echo '<table class="table-ordonnee">';
     echo '<thead>';
     echo '<tr>';
     echo '<th>Pseudo</th>';
@@ -27,7 +27,7 @@ if ($stmt->rowCount() > 0) {
         echo '<td>' . $row['pseudo'] . '</td>';
         echo '<td>' . $formatted_date . '</td>';
         echo '<td>' . $row['prenom'] . '</td>';
-        echo '<td><a href="gestionJoueurs/supprimerJoueur.php?pseudo=' . $row['pseudo'] . '" class="btn-supprimer">Supprimer</a></td>';
+        echo '<td><a href="supprimerJoueur?pseudo=' . $row['pseudo'] . '" class="btn-supprimer">Supprimer</a></td>';
         echo '</tr>';
     }
 

@@ -55,7 +55,7 @@ $logged_in = $_SESSION['logged_in'];
                             <div>
                                 <?php
                                 if($_SESSION['isAdmin'] == true){
-                                    echo'<a class="lienSimple" href="../panelAdmin">Panel Administrateur</a><br/>';
+                                    echo'<a class="lienSimple" href="panelAdmin">Panel Administrateur</a><br/>';
                                 }
                                 ?>
                                 <a class="lienSimple" href="../modifProfile">Modifier mon compte</a>

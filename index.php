@@ -65,7 +65,7 @@ $router->addRoute('profile', 'profileController@index');
 $router->addRoute('traitementConnexion', 'traitementConnexionController@index');
 $router->addRoute('traitementInscription', 'traitementInscriptionController@index');
 $router->addRoute('modifProfile', 'modifProfileController@index');
-$router->addRoute('panelAdmin', 'panelAdminController@index');
+$router->addRoute('panelAdmin', 'PanelAdminController@index');
 $router->addRoute('login', 'inscriptionController@index');
 $router->addRoute('ajouterItem', 'AddItemController@index');
 $router->addRoute('ajouterItemTraitement', 'AddItemTraitementController@index');
@@ -73,6 +73,7 @@ $router->addRoute('ajouterLoot', 'AddLootController@index');
 $router->addRoute('ajouterLootTraitement', 'AddLootTraitementController@index');
 $router->addRoute('ajouterMonstre', 'AddMonsterController@index');
 $router->addRoute('ajouterMonstreTraitement', 'AddMonsterTraitementController@index');
+$router->addRoute('supprimerJoueur', 'RemovePlayerController@index');
 
 
 for($i = 1; $i < 3; $i++){
