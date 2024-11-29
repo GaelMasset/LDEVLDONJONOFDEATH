@@ -3,7 +3,7 @@
 class Monstre{
     private $id;
     private $name;
-    private $image
+    private $image;
     private $pv;
     private $mana;
     private $strenght;
@@ -49,8 +49,5 @@ class Monstre{
         return $this->loot_id;
     }
 
-    public function getXp(){
-        return $this->xp;
-    }
 
 }

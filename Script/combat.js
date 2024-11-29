@@ -17,6 +17,7 @@ let heros = {
     image : "",
     classe : "",
     pv : 0,
+    pv_max : 0,
     initiative :0,
     force: 0,
     mana : 0,
@@ -51,6 +52,11 @@ function max(a, b){
     return b;
 }
 
+function min(a, b){
+    if (a < b) return a;
+    return b;
+}
+
 function initialiserMonstre(name, pv, initiative, force, mana, attack, loot_id, xp){
 
     monstre.name = name;
@@ -64,12 +70,13 @@ function initialiserMonstre(name, pv, initiative, force, mana, attack, loot_id, 
 
 }
 
-function initialiserHeros(name, image, classe, pv, initiative, force, mana, bonus_armure, bonus_arme, xp, spell_list, valeur_mana, current_level){
+function initialiserHeros(name, image, classe, pv, pv_max, initiative, force, mana, bonus_armure, bonus_arme, xp, spell_list, current_level){
 
     heros.name = name;
     heros.image = image;
     heros.classe = classe;
     heros.pv = pv;
+    heros.pv_max = pv_max;
     heros.initiative = initiative;
     heros.force = force;
     heros.mana = mana;
@@ -77,7 +84,6 @@ function initialiserHeros(name, image, classe, pv, initiative, force, mana, bonu
     heros.bonus_arme = bonus_arme;
     heros.xp = xp;
     heros.spell_list = spell_list;
-    heros.valeur_mana = valeur_mana;
     heros.current_level = current_level;
 
 }
@@ -98,19 +104,21 @@ function decidePremier(heros, monstre){
 function attaquer(attaquant, defenseur, type, sort){
 
     let attaque, defense, degat;
+
     if(attaquant.type === 'heros' && type === 'physique'){
         attaque = rand(1,6) + attaquant.force + attaquant.bonus_arme;
+        console.log("att" + attaque)
         degat = attaque;
     }
     if(attaquant.type === 'heros' && type === 'magique'){
         attaque = (rand(1,6) + rand(1,6)) + attaquant.valeur_mana[sort];
-        attaquant.mana -= attaquant.valeur_mana[sort];
+        attaquant.mana -= attaquant.spell_list[sort];
+        afficher(attaquant.name + " a utilisé " + sort + "...");
         degat = attaque;
     }
 
     if(attaquant.type === 'monstre'){
-        console.log('bien')
-        attaque = rand(1,6) + attaquant.force + attaquant.bonus_arme;
+        attaque = rand(1,6) + attaquant.force;
         defense = rand(1, 6) + (defenseur.force / 2) + defenseur.bonus_armure;
         degat = max(0, attaque - defense);
         
@@ -124,24 +132,32 @@ function attaquer(attaquant, defenseur, type, sort){
     afficher(defenseur.name + " a subi " + degat + " dégats ! ");
 }
 
-function battle() {
+function battle(type, sort) {
     
     
 
     if(combat.estMonstreTour) {
 
-        console.log(heros);
-        attaquer(monstre, heros, null, null);
+        attaquer(monstre, heros, type, sort);
 
         combat.estMonstreTour = false;
+
+        if(heros.pv <= 0 || monstre.pv <= 0){
+            fini();
+        }
 
         afficher(monstre.name + " vous attaque ! Que faire ?");
 
     } else {
 
-        attaquer(heros, monstre, null, null);
+        attaquer(heros, monstre, type, sort);
 
         combat.estMonstreTour = true;
+
+        if(heros.pv <= 0 || monstre.pv <= 0){
+            fini();
+        }
+
         battle();
 
     }
@@ -149,10 +165,19 @@ function battle() {
     
 }
 
-initialiserHeros("Erci", "aaa", "Magicien", 20, 5, 4, 20, 1, 2, 2, {},  {}, 5);
+function potion() {
+
+}
+
+function fini() {
+    document.location.href="/LDEVLDONJONOFDEATH/chapter1";
+}
+
+initialiserHeros("Erci", "aaa", "Magicien", 20, 20, 5, 4, 20, 1, 2, 2, {"flamme":5, "glace":7}, 5);
 console.log(heros);
-initialiserMonstre("Slime", 20, 5, 5, 10, "Boue", "10");
+initialiserMonstre("Slime", 40, 5, 5, 10, "Boue", "10");
 decidePremier(heros, monstre);
+
 console.log(combat.estMonstreTour)
 
 let commencer = document.createElement('button');
@@ -161,23 +186,14 @@ commencer.addEventListener('click', () => {
         let physique = document.createElement('button');
         physique.textContent = 'Attaque physique';
         physique.addEventListener('click', () => {
-            battle()
+            battle("physique", null)
         })
         body.append(physique);
 
-        /*let magique = document.createElement('button');
+        let magique = document.createElement('button');
         magique.textContent = 'Attaque magique';
         magique.addEventListener('click', () => {
-            attaquer(heros, monstre, "magique", choix);
-
-            if(heros.pv <= 0 || monstre.pv <= 0){
-                return;
-            } else {
-                battle();
-            }
-
-            
-            combat.estMonstreTour = true;
+              battle("magique", "flamme")
         })
         if(heros.classe === 'Magicien'){
             body.append(magique);
@@ -185,14 +201,20 @@ commencer.addEventListener('click', () => {
 
         let potion = document.createElement('button');
         potion.textContent = 'Boire une potion';
-        body.append(potion);*/
-    body.removeChild(commencer);
-    if(combat.estMonstreTour){
-        battle();
-    } else {
-        afficher(monstre.name + " vous attaque ! Que faire ?");
-    }
+        potion.addEventListener('click', () => {
+
+            potion();
+
+        });
+        
+        
+        body.append(potion);
+        body.removeChild(commencer);
+        if(combat.estMonstreTour){
+            battle();
+        } else {
+            afficher(monstre.name + " vous attaque ! Que faire ?");
+        }
 })
-commencer.style.margintTop = '100';
 
 body.append(commencer);

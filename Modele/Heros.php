@@ -4,7 +4,7 @@ class Heros{
     private $id;
     private $name;
     private $class;
-    private $image
+    private $image;
     private $pv;
     private $mana;
     private $strenght;
