@@ -4,12 +4,18 @@ Donc les stats d'armures et de bouclier devrait être assez élevées (le héros
 Guerrier:
 Il doit être puissant, résistant, bourré de testostérone
 Possibles nerfs: lent comme un camion
+
 	PV: 
 	
 
 Mage:
+L'intérêt c'est de lancer des sorts, il en faut plein et des puissants
+Possibles nerfs: a peu près tout mais il faudrait qu'il garde une attaque ou une initiative standard pour que le joueur n'ait pas l'impression de jouer un canon sur pattes 
+
 	PV: Probablement les mêmes qu'un monstre de base
 
 Voleur:
+Classe intermédiaire
+
 	PV: intermédiaire
 
