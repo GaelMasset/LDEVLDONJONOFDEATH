@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <?php require '../../header/header.php' ?>
+        <?php require 'header/header.php' ?>
         <link rel="stylesheet" href="../../header/style_header.css">
         <link rel="stylesheet" href="style_CreationPersonnage.css">
 
