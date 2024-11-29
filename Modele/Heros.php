@@ -49,8 +49,5 @@ class Heros{
         return $this->xp;
     }
 
-    public function getName(){
-        return $this->name;
-    }
 
 }
