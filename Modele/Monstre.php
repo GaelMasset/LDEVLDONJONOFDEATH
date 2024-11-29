@@ -1,6 +1,6 @@
 <?php
 
-class Heros{
+class Monstre{
     private $id;
     private $name;
     private $image
