@@ -74,6 +74,7 @@ $router->addRoute('ajouterLootTraitement', 'AddLootTraitementController@index');
 $router->addRoute('ajouterMonstre', 'AddMonsterController@index');
 $router->addRoute('ajouterMonstreTraitement', 'AddMonsterTraitementController@index');
 $router->addRoute('supprimerJoueur', 'RemovePlayerController@index');
+$router->addRoute('character', 'CharacterController@index');
 
 
 for($i = 1; $i < 3; $i++){

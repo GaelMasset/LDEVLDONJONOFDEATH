@@ -1,6 +1,9 @@
+
 body{
+    font-family: "Roboto";
     background-color: #1A1A1A;
     color: #E5E5E5;
+    
 }
 
 .classeOption {
@@ -19,5 +22,6 @@ img{
 button{
     max-width: 200px;
     max-height: auto;
+    color: #C4975E;
 
 }

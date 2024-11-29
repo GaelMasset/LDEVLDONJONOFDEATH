@@ -1,6 +1,6 @@
 <?php 
-class CharacterController(){
-    public function home(){
-        require_once '../Vue/character.php';
+class CharacterController{
+    public function index(){
+        require_once '../Vue/CreationPersonnage/character.php';
     }
 }
