@@ -1,0 +1,23 @@
+body{
+    background-color: #1A1A1A;
+    color: #E5E5E5;
+}
+
+.classeOption {
+    display: inline-block;
+    cursor: pointer;
+    border: 2px solid #E5E5E5;
+    transition: border 0.2s;
+}
+
+img{
+    max-width: 100px;
+    max-height: auto;
+    align-self: center;
+}
+
+button{
+    max-width: 200px;
+    max-height: auto;
+
+}
