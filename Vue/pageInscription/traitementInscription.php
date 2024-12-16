@@ -24,6 +24,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             exit();
         }
 
+        $sql = "SELECT * FROM compte WHERE mail = :mail";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute(['mail' => $mail]);
+        if ($stmt->rowCount() > 0) {
+            header('Location: login');
+            exit();
+        }
+
 
         $sql = "INSERT INTO compte (pseudo, mdp, dateInscription, prenom, nom, age, mail) VALUES (:username, :password, now(), :prenom, :nom, :age, :mail)";
         $stmt = $pdo->prepare($sql);

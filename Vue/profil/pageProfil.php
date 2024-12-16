@@ -1,7 +1,3 @@
-<?php
-session_start();
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -58,7 +54,7 @@ $logged_in = $_SESSION['logged_in'];
                                     echo'<a class="lienSimple" href="panelAdmin">Panel Administrateur</a><br/>';
                                 }
                                 ?>
-                                <a class="lienSimple" href="../modifProfile">Modifier mon compte</a>
+                                <a class="lienSimple" href="modifProfile">Modifier mon compte</a>
                                 <br/>
                                 <a class="lienSimple" href="#">Supprimer mon compte</a>
                             </div>

@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['age'] = $age;
             $_SESSION['mail'] = $mail;
 
-            header("Location: ../pageProfil.php"); 
+            header("Location: profile"); 
             exit();
         } else {
             echo "Erreur lors de la mise à jour des informations.";
