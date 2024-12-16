@@ -60,6 +60,26 @@ $logged_in = $_SESSION['logged_in'];
                     <div class="boxMonstres">   
                         <?php include 'gestionLoots/getLoots.php'; ?>
                     </div>
+
+                    <h3 class="titre3">Images</h3>
+                    <?php include 'images/listeImages.php'; 
+                    
+                    echo 'lol' . $_SERVER['DOCUMENT_ROOT'];
+                    ?>
+                    
+                    <h1>Ajouter une image</h1>
+                    
+                    <form action="uploadImage" method="post" enctype="multipart/form-data">
+                        <label for="image">Sélectionner une image :</label>
+                        <input type="file" name="image" id="image" accept="image/*" required>
+                        <br><br>
+                        
+                        <label for="filename">Nom du fichier :</label>
+                        <input type="text" name="filename" id="filename" placeholder="Entrez le nom du fichier" required>
+                        <br><br>
+                        
+                        <button type="submit" name="submit">Ajouter</button>
+                    </form>
                 </div>
             </div>
         </div>
