@@ -74,8 +74,9 @@ $router->addRoute('ajouterLootTraitement', 'AddLootTraitementController@index');
 $router->addRoute('ajouterMonstre', 'AddMonsterController@index');
 $router->addRoute('ajouterMonstreTraitement', 'AddMonsterTraitementController@index');
 $router->addRoute('supprimerJoueur', 'RemovePlayerController@index');
-
-
+$router->addRoute('logout', 'LogoutController@index');
+$router->addRoute('apropos', 'AProposController@index');
+$router->addRoute('updateProfile', 'UpdateProfileController@index');
 for($i = 1; $i < 3; $i++){
     $router->addRoute('chapter'.$i, 'ChapterController@index'.$i); // Pour le chapitre i
 }

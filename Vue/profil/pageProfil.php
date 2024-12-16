@@ -1,7 +1,3 @@
-<?php
-session_start();
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -38,8 +34,8 @@ $logged_in = $_SESSION['logged_in'];
             <div class="div-2-lignes">
                 <div class="child-2-lignes h20">
                     <div class="div-pp-info">
-                        <div class="child-pp-info">
-                            <img src="Berserker.jpg" id="iconeProfil">
+                        <div class="child-pp-info iconeProfil">
+                            
                         </div>
                         <div class="child-pp-info">
                             <?php
@@ -58,7 +54,7 @@ $logged_in = $_SESSION['logged_in'];
                                     echo'<a class="lienSimple" href="panelAdmin">Panel Administrateur</a><br/>';
                                 }
                                 ?>
-                                <a class="lienSimple" href="../modifProfile">Modifier mon compte</a>
+                                <a class="lienSimple" href="modifProfile">Modifier mon compte</a>
                                 <br/>
                                 <a class="lienSimple" href="#">Supprimer mon compte</a>
                             </div>
