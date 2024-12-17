@@ -25,6 +25,7 @@ echo '
                 <th>Attack</th>
                 <th>Loot_Id</th>
                 <th>XP</th>
+                <th>Image</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -41,6 +42,7 @@ foreach ($monstres as $monstre) {
             <td>' . $monstre['attack'] . '</td>
             <td>' . $monstre['loot_id'] . '</td>
             <td>' . $monstre['xp'] . '</td>
+            <td>' . $monstre['nomImage'] . '</td>
             <td>
                 <a href="suppriMonstre.php?id=' . $monstre['id'] . '">Supprimer</a>
             </td>
@@ -48,7 +50,7 @@ foreach ($monstres as $monstre) {
 }
 
 echo '<tr class="ligneAjout">
-            <td colspan="10">
+            <td colspan="11">
                 <a href="ajouterMonstre" class="ajouterTxt">Ajouter un monstre</a>
             </td>
         </tr>';
