@@ -34,8 +34,8 @@ $logged_in = $_SESSION['logged_in'];
             <div class="div-2-lignes">
                 <div class="child-2-lignes h20">
                     <div class="div-pp-info">
-                        <div class="child-pp-info iconeProfil">
-                            
+                        <div class="child-pp-info">
+                            <img src="images/Berserker.jpg" alt="Mon image" class="imageFullDiv"/>
                         </div>
                         <div class="child-pp-info">
                             <?php
@@ -75,7 +75,6 @@ $logged_in = $_SESSION['logged_in'];
 <?php
 $pseudo = $_SESSION['username'];
 ?>
-<script></script>
 </main>
 
 <style>

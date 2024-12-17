@@ -38,12 +38,9 @@ $logged_in = $_SESSION['logged_in'];
             <h1 class="titre1">Panel Administrateur</h1>
         </div>
         <div class="child-titre-reste">
-            <div class="div-2-colonnes-50-50 ">
-                <div class="child-2-colonnes-50-50 bordureDroite bordBlanche">
                     <h2 class="titre3">Liste des joueurs</h2>
                     <?php include'gestionJoueurs/listeJoueur.php'?>
                 </div>
-                <div class="child-2-colonnes-50-50 bordureDroite bordBlanche">
                     <h2 class="titre3">Liste du contenu</h2>
 
                     <h3 class="titre3">Monstres</h3>
@@ -60,6 +57,24 @@ $logged_in = $_SESSION['logged_in'];
                     <div class="boxMonstres">   
                         <?php include 'gestionLoots/getLoots.php'; ?>
                     </div>
+
+                    <h3 class="titre3">Images</h3>
+                    <?php include 'images/listeImages.php'; 
+                    ?>
+                    
+                    <h1>Ajouter une image</h1>
+                    
+                    <form action="uploadImage" method="post" enctype="multipart/form-data">
+                        <label for="image">Sélectionner une image :</label>
+                        <input type="file" name="image" id="image" accept="image/*" required>
+                        <br><br>
+                        
+                        <label for="filename">Nom du fichier :</label>
+                        <input type="text" name="filename" id="filename" placeholder="Entrez le nom du fichier" required>
+                        <br><br>
+                        
+                        <button type="submit" name="submit">Ajouter</button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -72,6 +87,7 @@ $logged_in = $_SESSION['logged_in'];
 <style>
 <?php 
 include __DIR__ . '/../../styles/flexboxs/flexboxsGeneral.css'; 
-include __DIR__ . '/../../styles/styleGeneral.css';  ?>
+include __DIR__ . '/../../styles/styleGeneral.css';
+include __DIR__ . '/../../styles/styleImages.css';  ?>;
 </style>
 </html>
