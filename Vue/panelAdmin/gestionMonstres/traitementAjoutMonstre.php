@@ -13,6 +13,7 @@ try {
     $attack = $_POST['attack'];
     $loot = $_POST['loot'];
     $xp = $_POST['xp'];
+    $nomImage = $_POST['cheminImage'];
 
     //verifier que personne a deja le id
     $sql = "SELECT * FROM monster WHERE id = :id";
@@ -23,9 +24,9 @@ try {
         exit();
     }
     
-    $sql = "INSERT INTO monster (id, name, pv, mana, initiative, strength, attack, loot_id, xp) VALUES (:id, :name, :pv, :mana, :initiative, :strength, :attack, :loot, :xp)";
+    $sql = "INSERT INTO monster (id, name, pv, mana, initiative, strength, attack, loot_id, xp, nomImage) VALUES (:id, :name, :pv, :mana, :initiative, :strength, :attack, :loot, :xp, :nomImage)";
     $stmt = $pdo->prepare($sql);
-    $stmt->execute(['id' => $id, 'name' => $name, 'pv' => $pv, 'mana' => $mana, 'initiative' => $initiative, 'strength' => $strength, 'attack' => $attack, 'loot' => $loot, 'xp' => $xp]);
+    $stmt->execute(['id' => $id, 'name' => $name, 'pv' => $pv, 'mana' => $mana, 'initiative' => $initiative, 'strength' => $strength, 'attack' => $attack, 'loot' => $loot, 'xp' => $xp, 'nomImage' => $nomImage]);
 
     header('Location: panelAdmin');
     exit();

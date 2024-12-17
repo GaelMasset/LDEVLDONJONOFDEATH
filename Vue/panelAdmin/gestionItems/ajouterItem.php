@@ -53,6 +53,9 @@ $isAdmin = $_SESSION['isAdmin'];
 
         <label class="titre2" for="description">Description de l'item :</label>
         <input type="text" id="description" name="description" maxlength="255" required>
+       
+        <label class="titre2" for="description">Image de l'item :</label>
+        <input type="text" id="cheminImage" name="cheminImage" maxlength="255" required>
 
         <input type="submit" value="Ajouter l'item">
     </form>

@@ -71,6 +71,9 @@ $isAdmin = $_SESSION['isAdmin'];
         <label for="username">XP a la mort :</label>
         <input type="text" id="xp" name="xp">
 
+        <label for="username">XP a la mort :</label>
+        <input type="text" id="cheminImage" name="cheminImage">
+
         <button type="submit" class="btn">Ajouter le monstre</button>
     </form>
 

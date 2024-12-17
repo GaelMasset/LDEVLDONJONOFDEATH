@@ -8,6 +8,7 @@ try {
     $id = $_POST['id'];
     $name = $_POST['name'];
     $description = $_POST['description'];
+    $cheminImage = $_POST['cheminImage'];
 
     //verifier que personne a deja le id
     $sql = "SELECT * FROM Items WHERE id = :id";
@@ -18,9 +19,9 @@ try {
         exit();
     }
     
-    $sql = "INSERT INTO Items (id, name, description) VALUES (:id, :name, :description)";
+    $sql = "INSERT INTO Items (id, name, description, cheminImage) VALUES (:id, :name, :description, :cheminImage)";
     $stmt = $pdo->prepare($sql);
-    $stmt->execute(['id' => $id, 'name' => $name, 'description' => $description]);
+    $stmt->execute(['id' => $id, 'name' => $name, 'description' => $description, 'cheminImage' => $cheminImage]);
 
     header('Location: panelAdmin');
     exit();

@@ -1,46 +1,48 @@
 <?php
 include_once(__DIR__ . '/../../../bdd.php'); 
+$pdo = new PDO($dsn, $user, $pass);
+$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-try {
-    $pdo = new PDO($dsn, $user, $pass);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    die("Erreur de connexion à la base de données : " . $e->getMessage());
+$sql = "SELECT pseudo, dateInscription, prenom, mail FROM compte";
+$stmt = $pdo->prepare($sql);
+$stmt->execute();
+
+if ($stmt->rowCount() > 0) {
+    echo '<table class="table-ordonnee">';
+    echo '<thead>';
+    echo '<tr>';
+    echo '<th>ID</th>';
+    echo '<th>Nom</th>';
+    echo '<th>Prénom</th>';
+    echo '<th>Actions</th>';
+    echo '</tr>';
+    echo '</thead>';
+    echo '<tbody>';
+
+    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+        $date_inscription = new DateTime($row['dateInscription']);
+        $formatted_date = $date_inscription->format('Y-m-d H:i:s');
+    
+        echo '<tr>';
+        echo '<td>' . $row['pseudo'] . '</td>';
+        echo '<td>' . $formatted_date . '</td>';
+        echo '<td>' . $row['prenom'] . '</td>';
+        
+        // Formulaire pour supprimer le joueur
+        echo '<td>';
+        echo '<form action="supprimerJoueur" method="POST" onsubmit="return confirm(\'Êtes-vous sûr de vouloir supprimer ce joueur ?\');">';
+        echo '<input type="hidden" name="pseudo" value="' . $row['mail'] . '">';
+        echo '<button type="submit" class="btn-supprimer">Supprimer</button>';
+        echo '</form>';
+        echo '</td>';
+    
+        echo '</tr>';
+    }
+    
+
+    echo '</tbody>';
+    echo '</table>';
+} else {
+    echo "<p>Aucun utilisateur trouvé.</p>";
 }
-
-$query = "SELECT * FROM Items";
-$stmt = $pdo->query($query);
-$items = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-echo '
-    <table class="table-ordonnee">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Nom</th>
-                <th>Description</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>';
-
-foreach ($items as $item) {
-    echo '<tr>
-            <td>' . $item['id'] . '</td>
-            <td>' . $item['name'] . '</td>
-            <td>' . $item['description'] . '</td>
-            
-            <td>
-                <a href="suppriItem.php?id=' . $item['id'] . '">Supprimer</a>
-            </td>
-        </tr>';
-}
-
-echo '<tr class="ligneAjout">
-            <td colspan="10">
-                <a href="ajouterItem" class="ajouterTxt">Ajouter un item</a>
-            </td>
-        </tr>';
-
-echo '</tbody></table>';
 ?>
