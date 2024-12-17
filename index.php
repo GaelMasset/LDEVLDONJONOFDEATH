@@ -79,6 +79,10 @@ $router->addRoute('apropos', 'AProposController@index');
 $router->addRoute('updateProfile', 'UpdateProfileController@index');
 $router->addRoute('uploadImage', 'UploadImageController@index');
 
+$router->addRoute('Berserkerr', 'BerserkerController@index');
+
+
+
 for($i = 1; $i < 3; $i++){
     $router->addRoute('chapter'.$i, 'ChapterController@index'.$i); // Pour le chapitre i
 }

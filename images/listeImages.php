@@ -1,6 +1,5 @@
 <?php
-$directory ='images/'; // Utilisation d'un chemin absolu
-
+$directory ='images/';
 $files = scandir($directory);
 
 $allowedExts = ['jpg', 'jpeg', 'png', 'gif'];
@@ -16,15 +15,40 @@ foreach ($files as $file) {
 if (empty($imageFiles)) {
     echo "<p>Aucune image trouvée dans le dossier.</p>";
 } else {
-    echo '<div class="image-list">';
-    foreach ($imageFiles as $image) {
-        // Utilisation du chemin absolu pour afficher l'image
-        echo '<div class="image-item">';
-        $cheminVrai = '/'.$image;
-        echo '<p>'.$cheminVrai.'</p>';
-        echo '<img src="'.$cheminVrai.'>';
-        echo '</div>';
+    
+echo '<div class="divImages">'; // Div principale qui contiendra toutes les images
+
+$imageCount = 0; // Compteur d'images
+
+foreach ($imageFiles as $image) {
+    // Quand 4 images sont affichées, on ouvre une nouvelle ligne
+    if ($imageCount % 10 == 0) {
+        // Ouvre une nouvelle ligne toutes les 4 images
+        echo '<div class="imageRow">';
     }
+
+    // Affiche l'image
+    echo '<div class="itemImage">';
+    echo '<p style="color:black;">'.$image.'</p>';
+    echo '<img src="images/'.$image.'">';
     echo '</div>';
+
+    // Incrémente le compteur
+    $imageCount++;
+
+    // Quand 4 images sont affichées, on ferme la ligne
+    if ($imageCount % 10 == 0) {
+        echo '</div>'; // Fermeture de la div "imageRow"
+    }
+}
+
+// Si le nombre d'images n'est pas un multiple de 4, on ferme la dernière ligne
+if ($imageCount % 10 != 0) {
+    echo '</div>';
+}
+
+echo '</div>'; // Fermeture de la div principale
+
+
 }
 ?>

@@ -38,12 +38,9 @@ $logged_in = $_SESSION['logged_in'];
             <h1 class="titre1">Panel Administrateur</h1>
         </div>
         <div class="child-titre-reste">
-            <div class="div-2-colonnes-50-50 ">
-                <div class="child-2-colonnes-50-50 bordureDroite bordBlanche">
                     <h2 class="titre3">Liste des joueurs</h2>
                     <?php include'gestionJoueurs/listeJoueur.php'?>
                 </div>
-                <div class="child-2-colonnes-50-50 bordureDroite bordBlanche">
                     <h2 class="titre3">Liste du contenu</h2>
 
                     <h3 class="titre3">Monstres</h3>
@@ -63,8 +60,6 @@ $logged_in = $_SESSION['logged_in'];
 
                     <h3 class="titre3">Images</h3>
                     <?php include 'images/listeImages.php'; 
-                    
-                    echo 'lol' . $_SERVER['DOCUMENT_ROOT'];
                     ?>
                     
                     <h1>Ajouter une image</h1>
@@ -92,6 +87,7 @@ $logged_in = $_SESSION['logged_in'];
 <style>
 <?php 
 include __DIR__ . '/../../styles/flexboxs/flexboxsGeneral.css'; 
-include __DIR__ . '/../../styles/styleGeneral.css';  ?>
+include __DIR__ . '/../../styles/styleGeneral.css';
+include __DIR__ . '/../../styles/styleImages.css';  ?>;
 </style>
 </html>
