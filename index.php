@@ -74,12 +74,15 @@ $router->addRoute('ajouterLootTraitement', 'AddLootTraitementController@index');
 $router->addRoute('ajouterMonstre', 'AddMonsterController@index');
 $router->addRoute('ajouterMonstreTraitement', 'AddMonsterTraitementController@index');
 $router->addRoute('supprimerJoueur', 'RemovePlayerController@index');
+$router->addRoute('supprimerLoot', 'RemoveLootController@index');
+$router->addRoute('supprimerMonstre', 'RemoveMonstreController@index');
+$router->addRoute('supprimerItem', 'RemoveItemController@index');
 $router->addRoute('logout', 'LogoutController@index');
 $router->addRoute('apropos', 'AProposController@index');
 $router->addRoute('updateProfile', 'UpdateProfileController@index');
 $router->addRoute('uploadImage', 'UploadImageController@index');
+$router->addRoute('suppressionImage', 'SuppressionImageController@index');
 
-$router->addRoute('Berserkerr', 'BerserkerController@index');
 
 
 

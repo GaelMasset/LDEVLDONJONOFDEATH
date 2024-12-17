@@ -30,7 +30,8 @@ if (isset($_POST['submit'])) {
                     echo "choisir un autre nom";
                 } else {
                     if (move_uploaded_file($fileTmpName, $fileDestination)) {
-                        echo "succes";
+                        header('Location: panelAdmin');
+                        exit();
                     } else {
                         echo "erreur";
                     }

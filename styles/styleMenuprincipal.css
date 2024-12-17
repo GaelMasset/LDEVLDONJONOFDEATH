@@ -1,0 +1,10 @@
+.mainTitre{
+    padding: 5px;
+}
+
+.boutonAventure{
+    margin: auto;
+    display: block;
+    height: 10%;
+    width: 30%;
+}

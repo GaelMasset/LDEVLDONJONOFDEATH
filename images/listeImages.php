@@ -16,38 +16,36 @@ if (empty($imageFiles)) {
     echo "<p>Aucune image trouvée dans le dossier.</p>";
 } else {
     
-echo '<div class="divImages">'; // Div principale qui contiendra toutes les images
+echo '<div class="divImages">';
 
-$imageCount = 0; // Compteur d'images
+$imageCount = 0;
 
 foreach ($imageFiles as $image) {
-    // Quand 4 images sont affichées, on ouvre une nouvelle ligne
     if ($imageCount % 10 == 0) {
-        // Ouvre une nouvelle ligne toutes les 4 images
         echo '<div class="imageRow">';
     }
 
-    // Affiche l'image
     echo '<div class="itemImage">';
-    echo '<p style="color:black;">'.$image.'</p>';
+    echo '<span style="color:black;">'.$image.'</span><br/>';
+    echo'<form action="suppressionImage" method="post">
+    <input type="hidden" name="nomImage" value="'.$image.'">
+    <button type="submit">Supprimer</button>
+    </form>';
     echo '<img src="images/'.$image.'">';
     echo '</div>';
 
-    // Incrémente le compteur
     $imageCount++;
 
-    // Quand 4 images sont affichées, on ferme la ligne
     if ($imageCount % 10 == 0) {
-        echo '</div>'; // Fermeture de la div "imageRow"
+        echo '</div>';
     }
 }
 
-// Si le nombre d'images n'est pas un multiple de 4, on ferme la dernière ligne
 if ($imageCount % 10 != 0) {
     echo '</div>';
 }
 
-echo '</div>'; // Fermeture de la div principale
+echo '</div>';
 
 
 }

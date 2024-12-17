@@ -24,6 +24,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             exit();
         }
 
+
+        // Récupérer le nombre de gens pour l'id
+        $sql = "SELECT count(*) FROM compte";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute();
+
+        // Récupérer le résultat et le stocker dans une variable
+        $id = $stmt->fetchColumn() + 1;
+
+
         $sql = "SELECT * FROM compte WHERE mail = :mail";
         $stmt = $pdo->prepare($sql);
         $stmt->execute(['mail' => $mail]);
@@ -33,10 +43,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
 
-        $sql = "INSERT INTO compte (pseudo, mdp, dateInscription, prenom, nom, age, mail) VALUES (:username, :password, now(), :prenom, :nom, :age, :mail)";
+        $sql = "INSERT INTO compte (pseudo, mdp, dateInscription, prenom, nom, age, mail, id) VALUES (:username, :password, now(), :prenom, :nom, :age, :mail, :id)";
         $stmt = $pdo->prepare($sql);
         
-        $stmt->execute(['username' => $username, 'password' => $password, 'mail' => $mail, 'prenom' => $prenom, 'nom' => $nom, 'age' => $age]);
+        $stmt->execute(['username' => $username, 'password' => $password, 'mail' => $mail, 'prenom' => $prenom, 'nom' => $nom, 'age' => $age, 'id' =>$id]);
 
 
         $sql = "SELECT * FROM compte WHERE pseudo = :username";
@@ -54,6 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['mail'] = $user['mail'];
         $_SESSION['logged_in'] = true;
         $_SESSION['isAdmin'] = $user['isAdmin'];
+        $_SESSION['id'] = $user['id'];
 
         header('Location: profile');
         exit();

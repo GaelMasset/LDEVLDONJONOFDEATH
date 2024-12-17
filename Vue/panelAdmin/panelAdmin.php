@@ -64,7 +64,7 @@ $logged_in = $_SESSION['logged_in'];
                     
                     <h1>Ajouter une image</h1>
                     
-                    <form action="uploadImage" method="post" enctype="multipart/form-data">
+                    <form action="uploadImage" method="post" enctype="multipart/form-data" class="form-centre-sobre">
                         <label for="image">Sélectionner une image :</label>
                         <input type="file" name="image" id="image" accept="image/*" required>
                         <br><br>

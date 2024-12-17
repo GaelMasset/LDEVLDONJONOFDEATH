@@ -35,6 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $_SESSION['mail'] = $user['mail'];
                 $_SESSION['logged_in'] = true;
                 $_SESSION['isAdmin'] = $user['isAdmin'];
+                $_SESSION['id'] = $user['id'];
 
                 //redirection vers index.php
                 header('Location: profile');

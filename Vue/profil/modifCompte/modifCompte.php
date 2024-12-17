@@ -1,7 +1,3 @@
-<?php
-session_start();
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -37,7 +33,7 @@ $logged_in = $_SESSION['logged_in'];
     <h1 class="titreDroite">Modifier votre profil</h1>
 
     <!-- Formulaire -->
-    <form action="updateProfile" method="POST" class="form-profil">
+    <form action="updateProfile" method="POST" class="div-form">
         <label for="username">Nom d'utilisateur :</label>
         <input type="text" id="username" name="username" value="<?php echo htmlspecialchars($username); ?>" required>
 
@@ -58,4 +54,15 @@ $logged_in = $_SESSION['logged_in'];
 </main>
 
 </body>
+
+    <style>
+    <?php
+    include 'styles/flexboxs/flexboxsGeneral.css'; 
+    include 'styles/styleGeneral.css';
+    include 'styles/styleImages.css'; 
+    include 'Vue/profil/modifCompte/style.css'
+    ?>
+    </style>
+
+
 </html>
