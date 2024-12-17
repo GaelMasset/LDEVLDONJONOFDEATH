@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -41,18 +42,50 @@
             </span>
         </a>
 
-    <h1>bienvenu au titre</h1>
+    <h1 class="titre1 mainTitre">Bienvenue, cher aventurier</h1>
 
+    <form method="POST">
+        <button class="boutonAventure" type="submit" name="demander_aventure">Commencer une nouvelle aventure</button>
+    </form>
     <script defer src="java.js"></script>
 
     </body>
 
-    <style>
+    
+
     <?php
+        function commencerAventure() {
+            try {
+                include 'bdd.php';
+                $pdo = new PDO($dsn, $user, $pass);
+                $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                $sql = "SELECT count(*) FROM Adventure WHERE idCompte = :id";
+                $stmt = $pdo->prepare($sql);
+                $stmt->bindParam(':id', $_SESSION['id'], PDO::PARAM_STR);
+                $stmt->execute();
+                $nbAdventure = $stmt->fetchColumn();
+                if($nbAdventure > 0){
+                    header("Location: profile");
+                }
+                else{
+                    header("Location: accueil");
+                }
+            } catch (PDOException $e) {
+                echo "Erreur : " . $e->getMessage();
+            }
+        }
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['demander_aventure'])) {
+            commencerAventure();
+        }
+    ?>
+<style>
+    <?php
+    include 'styles/styleMenuprincipal.css';
     include 'styles/flexboxs/flexboxsGeneral.css'; 
     include 'styles/styleGeneral.css';
     include 'styles/styleImages.css'; 
+    include 'Vue/style.css';
     ?>
     </style>
-
 </html>
