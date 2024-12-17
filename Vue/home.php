@@ -3,7 +3,19 @@
 <html lang="fr">
 
     <?php
-
+        include 'bdd.php';
+        try {
+            $pdo = new PDO($dsn, $user, $pass);
+            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $sql = "SELECT count(*) FROM Adventure WHERE idCompte = :id";
+            $stmt = $pdo->prepare($sql);
+            $stmt->bindParam(':id', $_SESSION['id'], PDO::PARAM_STR);
+            $stmt->execute();
+            $nbAdventure = $stmt->fetchColumn();
+            
+        } catch (PDOException $e) {
+            echo "Erreur : " . $e->getMessage();
+        }
     ?>
 
     <head>
@@ -45,7 +57,12 @@
     <h1 class="titre1 mainTitre">Bienvenue, cher aventurier</h1>
 
     <form method="POST">
-        <button class="boutonAventure" type="submit" name="demander_aventure">Commencer une nouvelle aventure</button>
+        <button class="boutonAventure" type="submit" name="demander_aventure">
+            <?php
+            if($nbAdventure > 0) echo 'Continuer l\'aventure';
+            else echo 'Commencer une nouvelle aventure';
+            ?>
+        </button>
     </form>
     <script defer src="java.js"></script>
 
@@ -55,24 +72,11 @@
 
     <?php
         function commencerAventure() {
-            try {
-                include 'bdd.php';
-                $pdo = new PDO($dsn, $user, $pass);
-                $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                $sql = "SELECT count(*) FROM Adventure WHERE idCompte = :id";
-                $stmt = $pdo->prepare($sql);
-                $stmt->bindParam(':id', $_SESSION['id'], PDO::PARAM_STR);
-                $stmt->execute();
-                $nbAdventure = $stmt->fetchColumn();
-                if($nbAdventure > 0){
-                    header("Location: profile");
-                }
-                else{
-                    header("Location: accueil");
-                }
-            } catch (PDOException $e) {
-                echo "Erreur : " . $e->getMessage();
+            if($nbAdventure == 0){
+                //creer une nouvelle aventure
             }
+            
+            header("Location: aventure");
         }
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['demander_aventure'])) {

@@ -31,10 +31,11 @@ foreach ($items as $item) {
             <td>' . $item['name'] . '</td>
             <td>' . $item['item_id'] . '</td>
             <td>' . $item['quantity'] . '</td>
-
-            <td>
-                <a href="suppriItem.php?id=' . $item['id'] . '">Supprimer</a>
-            </td>
+            <td>';
+                echo '<form action="supprimerLoot" method="POST" onsubmit="return confirm(\'Êtes-vous sûr de vouloir supprimer ce loot ?\');">';
+                echo '<input type="hidden" name="id" value="' .$item['id']. '">';
+                echo '<button type="submit" class="btn-supprimer">Supprimer</button>';
+            echo'</td>
         </tr>';
 }
 
