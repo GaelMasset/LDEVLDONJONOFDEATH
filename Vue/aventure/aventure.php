@@ -42,29 +42,57 @@ $logged_in = $_SESSION['logged_in'];
   $stmt = $pdo->prepare($sql);
   $stmt->execute(['id' => $hero['current_chapter']]);
   $chapitre = $stmt->fetch(PDO::FETCH_ASSOC);
+
+  $sql = "SELECT * FROM links where chapter_id = :id";
+  $stmt = $pdo->prepare($sql);
+  $stmt->execute(['id' => $hero['current_chapter']]);
+  $links = $stmt->fetchAll(PDO::FETCH_ASSOC); 
   ?>
 
-  <div class="menu-container">
-    <div class="burger" onclick="toggleMenu()">
-      <div class="bar"></div>
-      <div class="bar"></div>
-      <div class="bar"></div>
+  <div class="div-2-lignes">
+    <div class="child-2-lignes h80">
+      <div class="menu-container">
+        <div class="burger" onclick="toggleMenu()">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+        </div>
+
+        <div id="menu" class="menu">
+          <ul>
+            <li><a href="/LDEVLDONJONOFDEATH">Accueil</a></li>
+            <li><a href="profile">Profil</a></li>
+          </ul>
+        </div>
+      </div>
+      <?php
+        echo $chapitre['content'];
+      ?>
     </div>
+    <div class="child-2-lignes h10">
+      <div class="div-3-colonnes-33">
+        <?php
+          foreach($links as $link) {
+            echo '
+            <div class="child-3-colonnes-33">
+              <form class="formulaireAChaqueLigne" action="updateChapterHero" method="POST" class="form-profil">
+                <button class="boutonAdventure">'.$link['description'].'</button>
+                <input type="hidden" name="id" value="'.$link['id'].'">
+              </form>
+            </div>
+            ';
+          }
+        ?>
 
-    <div id="menu" class="menu">
-      <ul>
-        <li><a href="/LDEVLDONJONOFDEATH">Accueil</a></li>
-        <li><a href="profile">Profil</a></li>
-      </ul>
+        
+      </div>
     </div>
-  </div>
+  
 
 
 
 
-  <?php
-  echo $chapitre['content'];
-  ?>
+  
 
 
 

@@ -35,7 +35,9 @@ if ($stmt->rowCount() > 0) {
     
         echo '</tr>';
     }
-    echo '<tr class="ligneAjout">
+    
+}
+echo '<tr class="ligneAjout">
             <td colspan="2">
                 <a href="ajouterChapitre" class="ajouterTxt">Ajouter un chapitre</a>
             </td>
@@ -43,7 +45,4 @@ if ($stmt->rowCount() > 0) {
 
     echo '</tbody>';
     echo '</table>';
-} else {
-    echo "<p>Aucun utilisateur trouvé.</p>";
-}
 ?>

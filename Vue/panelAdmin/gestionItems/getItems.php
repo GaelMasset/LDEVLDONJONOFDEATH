@@ -37,7 +37,9 @@ if ($stmt->rowCount() > 0) {
     
         echo '</tr>';
     }
-    echo '<tr class="ligneAjout">
+    
+}
+echo '<tr class="ligneAjout">
             <td colspan="5">
                 <a href="ajouterItem" class="ajouterTxt">Ajouter un item</a>
             </td>
@@ -45,5 +47,4 @@ if ($stmt->rowCount() > 0) {
 
     echo '</tbody>';
     echo '</table>';
-}
 ?>

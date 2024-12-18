@@ -29,14 +29,6 @@
     </head>
     <body>
 
-        <a href="#" id="openBtn">
-            <span class="burger-icon">
-            <span></span>
-            <span></span>
-            <span></span>
-            </span>
-        </a>
-
     <h1 class="titre1 mainTitre fade-in">Bienvenue, cher aventurier</h1>
 
     <form method="POST">

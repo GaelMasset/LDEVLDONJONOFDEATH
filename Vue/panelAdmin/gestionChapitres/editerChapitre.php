@@ -32,7 +32,29 @@ $pdo = new PDO($dsn, $user, $pass);
     $stmt = $pdo->prepare($sql);
     $stmt->execute(['id' => $_POST['id']]);
     $contenu = $stmt->fetch(PDO::FETCH_ASSOC);
-?>
+
+    $sql = "select id FROM Chapter";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute();
+    $idChapitres = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    $sql = "SELECT * FROM links WHERE chapter_id = :id";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute(['id' => $_POST['id']]);
+
+    // Récupérer toutes les lignes
+    $nextChapters = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    // Assurez-vous qu'il y a au moins 3 résultats avant d'y accéder
+    $nextChap1;
+    $nextChap2;
+    $nextChap3;
+    if(isset($nextChapters[0]['next_chapter_id'])) $nextChap1 = $nextChapters[0];
+    if(isset($nextChapters[1]['next_chapter_id'])) $nextChap2 = $nextChapters[1];
+    if(isset($nextChapters[2]['next_chapter_id'])) $nextChap3 = $nextChapters[2];
+
+
+    ?>
 <main>
 
 <h1 class="titre1" id="titre">Editer un chapitre</h1>
@@ -45,9 +67,53 @@ $pdo = new PDO($dsn, $user, $pass);
         <button type="button" onclick="insertTag('<h2>', '</h2>')">Insérer H2</button>
         <button type="button" onclick="insertTag('<p>', '</p>')">Insérer P</button>
 
+        <h2> Ajouter des liens vers d'autres chapitres </h2>
+     
+          <label for="choixChapitre1">Choisissez un chapitre :</label>
+          <select id="choixChapitre1" name="choixChapitre1">
+          <option><?php if(isset($nextChap1)){echo $nextChap1['next_chapter_id'];} else{echo'/';}   ?></option>
+            <?php 
+            foreach($idChapitres as $id){
+              echo '<option>'.$id['id'].'</option>';
+            }
+            ?>
+          </select>
+          <label for="id">Description du lien :</label>
+          <input type="text" id="desclien1" name="desclien1" value="<?php if(isset($nextChap1)){echo $nextChap1['description'];} else{echo'';} ?>">
+         
+      
+
+        
+        <label for="choixChapitre2">Choisissez un chapitre :</label>
+          <select id="choixChapitre2" name="choixChapitre2">
+            <option><?php if(isset($nextChap2)){echo $nextChap2['next_chapter_id'];} else{echo'/';}   ?></option>
+            <?php 
+            foreach($idChapitres as $id){
+              echo '<option >'.$id['id'].'</option>';
+            }
+            ?>
+          </select>
+          <label for="id">Description du lien :</label>
+          <input type="text" id="desclien2" name="desclien2" value="<?php if(isset($nextChap2)){echo $nextChap2['description'];} else{echo'';} ?>">
+       
+
+        
+        <label for="choixChapitre3">Choisissez un chapitre :</label>
+          <select id="choixChapitre3" name="choixChapitre3">
+          <option><?php if(isset($nextChap3)){echo $nextChap3['next_chapter_id'];} else{echo'/';}   ?></option>
+            <?php 
+            foreach($idChapitres as $id){
+              echo '<option>'.$id['id'].'</option>';
+            }
+            ?>
+          </select>
+          <label for="id">Description du lien :</label>
+          <input type="text" id="desclien3" name="desclien3" value=<?php if(isset($nextChap3)){echo $nextChap3['"description"'];} else{echo'""';} ?>>
+    
 
         <input type="submit" value="Modifier le chapitre">
     </form>
+
 </div>
 
 
@@ -68,16 +134,14 @@ include __DIR__ . '/../../../styles/styleAventure.css';  ?>
     var endPos = textarea.selectionEnd;
     var text = textarea.value;
     
-    // Si du texte est sélectionné, remplace-le par la balise
     if (startPos !== endPos) {
         textarea.value = text.substring(0, startPos) + openTag + text.substring(startPos, endPos) + closeTag + text.substring(endPos);
     } else {
-        // Sinon, insère la balise à la position du curseur
         textarea.value = text.substring(0, startPos) + openTag + closeTag + text.substring(endPos);
     }
-    
-    // Repositionner le curseur après la fermeture de la balise
     textarea.setSelectionRange(startPos + openTag.length, startPos + openTag.length);
 }
+
+
 
 </script>
