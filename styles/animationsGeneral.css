@@ -1,0 +1,18 @@
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes attendre {
+    0% { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+.fade-in {
+    animation: fadeIn 3s; 
+}
+
+.fade-in-apres {
+    animation: attendre 3s, fadeIn 3s 3s;
+}
+

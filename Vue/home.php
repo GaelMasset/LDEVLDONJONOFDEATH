@@ -55,10 +55,10 @@
             </span>
         </a>
 
-    <h1 class="titre1 mainTitre">Bienvenue, cher aventurier</h1>
+    <h1 class="titre1 mainTitre fade-in">Bienvenue, cher aventurier</h1>
 
     <form method="POST">
-        <button class="boutonAventure" type="submit" name="demander_aventure">
+        <button class="boutonAventure fade-in-apres" type="submit" name="demander_aventure">
             <?php
             if($nbAdventure > 0) echo 'Continuer l\'aventure';
             else echo 'Commencer une nouvelle aventure';
@@ -90,7 +90,8 @@
     include 'styles/styleMenuprincipal.css';
     include 'styles/flexboxs/flexboxsGeneral.css'; 
     include 'styles/styleGeneral.css';
-    include 'styles/styleImages.css'; 
+    include 'styles/styleImages.css';
+    include 'styles/animationsGeneral.css'; 
     include 'Vue/style.css';
     ?>
     </style>

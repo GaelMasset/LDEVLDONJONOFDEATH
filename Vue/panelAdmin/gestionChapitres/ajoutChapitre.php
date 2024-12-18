@@ -32,14 +32,11 @@ $logged_in = $_SESSION['logged_in'];
         <label class="titre2" for="id">Numéro du chapitre</label>
         <input type="number" id="id" name="id" required>
 
+        <label class="titre2" for="id">Contenu du chapitre</label>
         <textarea id="content" name="content" rows="4" cols="50"></textarea>
-
-
         <input type="submit" value="Ajouter le chapitre">
     </form>
 </div>
-
-
 
 </main>
 
