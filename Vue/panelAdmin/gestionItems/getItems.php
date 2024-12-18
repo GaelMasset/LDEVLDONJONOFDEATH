@@ -3,7 +3,7 @@ include_once(__DIR__ . '/../../../bdd.php');
 $pdo = new PDO($dsn, $user, $pass);
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-$sql = "SELECT * FROM items";
+$sql = "SELECT * FROM Items";
 $stmt = $pdo->prepare($sql);
 $stmt->execute();
 

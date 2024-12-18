@@ -3,11 +3,12 @@
 <html lang="fr">
 
     <?php
+    $nbAdventure=0;
         include 'bdd.php';
         try {
             $pdo = new PDO($dsn, $user, $pass);
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $sql = "SELECT count(*) FROM Adventure WHERE idCompte = :id";
+            $sql = "SELECT count(*) FROM Hero WHERE idCompte = :id";
             $stmt = $pdo->prepare($sql);
             $stmt->bindParam(':id', $_SESSION['id'], PDO::PARAM_STR);
             $stmt->execute();
@@ -71,7 +72,7 @@
     
 
     <?php
-        function commencerAventure() {
+        function commencerAventure($nbAdventure) {
             if($nbAdventure == 0){
                 //creer une nouvelle aventure
             }
@@ -80,7 +81,7 @@
         }
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['demander_aventure'])) {
-            commencerAventure();
+            commencerAventure($nbAdventure);
         }
     ?>
 <style>
