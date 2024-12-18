@@ -3,7 +3,7 @@ include_once(__DIR__ . '/../../../bdd.php');
 $pdo = new PDO($dsn, $user, $pass);
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-$sql = "SELECT * FROM Items";
+$sql = "SELECT * FROM Chapter";
 $stmt = $pdo->prepare($sql);
 $stmt->execute();
 
@@ -11,10 +11,7 @@ if ($stmt->rowCount() > 0) {
     echo '<table class="table-ordonnee">';
     echo '<thead>';
     echo '<tr>';
-    echo '<th>ID</th>';
-    echo '<th>Nom</th>';
-    echo '<th>Description</th>';
-    echo '<th>Chemin De L\'image</th>';
+    echo '<th>Numéro</th>';
     echo '<th>Actions</th>';
     echo '</tr>';
     echo '</thead>';
@@ -24,14 +21,15 @@ if ($stmt->rowCount() > 0) {
     
         echo '<tr>';
         echo '<td>' . $row['id'] . '</td>';
-        echo '<td>' . $row['name'] . '</td>';        
-        echo '<td>' . $row['description'] . '</td>';
-        echo '<td>' . $row['cheminImage'] . '</td>';
 
         echo '<td>';
-        echo '<form action="supprimerItem" method="POST" onsubmit="return confirm(\'Êtes-vous sûr de vouloir supprimer cet item ?\');">';
+        echo '<form action="supprimerChapitre" method="POST" onsubmit="return confirm(\'Êtes-vous sûr de vouloir supprimer cet item ?\');">';
         echo '<input type="hidden" name="id" value="' .$row['id']. '">';
         echo '<button type="submit" class="btn-supprimer">Supprimer</button>';
+        echo '</form>';
+        echo '<form action="editerChapitre" method="POST">';
+        echo '<input type="hidden" name="id" value="' .$row['id']. '">';
+        echo '<button type="submit" class="btn-supprimer">Modifier</button>';
         echo '</form>';
         echo '</td>';
     
@@ -40,8 +38,8 @@ if ($stmt->rowCount() > 0) {
     
 }
 echo '<tr class="ligneAjout">
-            <td colspan="5">
-                <a href="ajouterItem" class="ajouterTxt">Ajouter un item</a>
+            <td colspan="2">
+                <a href="ajouterChapitre" class="ajouterTxt">Ajouter un chapitre</a>
             </td>
         </tr>';
 

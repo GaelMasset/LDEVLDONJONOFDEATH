@@ -1,0 +1,77 @@
+
+p{
+    text-align: center;
+}
+
+
+
+
+
+
+  
+
+.menu-container {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.burger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+    margin: 10px;
+    z-index: 100;
+}
+  
+  .burger .bar {
+    height: 4px;
+    width: 100%;
+    background-color: #333;
+    border-radius: 2px;
+  }
+  
+  .menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    background-color: #333;
+    color: white;
+    display: none;
+    flex-direction: column;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+  }
+  
+  .menu ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .menu ul li {
+    margin: 20px 0;
+  }
+  
+  .menu ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+  }
+  
+  .menu ul li a:hover {
+    color: #f0f0f0;
+  }
+  
+  .boutonAdventure{
+    margin-left: 5vw;
+    margin-right: 5vw;
+    height: 100px;
+    background-color: #C4975E;
+    border: 3px solid #864f29;
+    border-radius: 3px;
+  }
