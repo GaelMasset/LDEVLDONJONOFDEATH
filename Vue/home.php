@@ -28,24 +28,6 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
     </head>
     <body>
-        
-        <div id="popupOverlay">
-	        <div class="popupContent">
-	            <h2>vous venez de sauvegarder</h2>
-		        <p>merci</p>
-		        <a href="#" id="fermerPop" class="popupLink">Retour à l'accueil</a>
-	        </div>
-        </div>
-        
-        <div id="mySidenav" class="sidenav">
-            <a id="closeBtn" href="#" class="close">X</a>
-            <ul>
-                <li><a href="propos.php">A propos</a></li>
-                <li><a href="jouer.php">Jouer</a></li>
-                <li><a href="#" id="ouvrirPop">Sauvegarder</a></li>
-                <li><a href="#">Quitter</a></li>
-            </ul>
-        </div>
 
         <a href="#" id="openBtn">
             <span class="burger-icon">
