@@ -39,9 +39,7 @@ $pdo = new PDO($dsn, $user, $pass);
 <div class="div-form">
     <form class="formulaireAChaqueLigne" action="editerChapitreTraitement" method="POST" class="form-profil">
         <?php echo'<input type="hidden" name="id" value="'.$_POST['id'].'">'; ?>
-        <textarea id="content" name="content" rows="4" cols="50">
-        <?php echo $contenu['content']; ?>
-        </textarea>
+        <textarea id="content" name="content" rows="4" cols="50"><?php echo $contenu['content']; ?></textarea>
 
 
         <input type="submit" value="Modifier le chapitre">
