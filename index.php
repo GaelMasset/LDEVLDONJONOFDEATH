@@ -82,6 +82,12 @@ $router->addRoute('apropos', 'AProposController@index');
 $router->addRoute('updateProfile', 'UpdateProfileController@index');
 $router->addRoute('uploadImage', 'UploadImageController@index');
 $router->addRoute('suppressionImage', 'SuppressionImageController@index');
+$router->addRoute('aventure', 'AventureController@index');
+$router->addRoute('ajouterChapitre', 'AddChapterController@index');
+$router->addRoute('ajouterChapitreTraitement', 'AddChapterTraitementController@index');
+$router->addRoute('editerChapitre', 'EditChapterController@index');
+$router->addRoute('editerChapitreTraitement', 'EditChapterTraitementController@index');
+$router->addRoute('supprimerChapitre', 'RemoveChapterController@index');
 
 
 

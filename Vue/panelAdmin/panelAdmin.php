@@ -58,6 +58,11 @@ $logged_in = $_SESSION['logged_in'];
                         <?php include 'gestionLoots/getLoots.php'; ?>
                     </div>
 
+                    <h3 class="titre3">Chapitres</h3>
+                    <div class="boxMonstres">   
+                        <?php include 'gestionChapitres/getChapitres.php'; ?>
+                    </div>
+
                     <h3 class="titre3">Images</h3>
                     <?php include 'images/listeImages.php'; 
                     ?>
