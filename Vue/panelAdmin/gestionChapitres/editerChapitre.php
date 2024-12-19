@@ -42,10 +42,8 @@ $pdo = new PDO($dsn, $user, $pass);
     $stmt = $pdo->prepare($sql);
     $stmt->execute(['id' => $_POST['id']]);
 
-    // Récupérer toutes les lignes
     $nextChapters = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    // Assurez-vous qu'il y a au moins 3 résultats avant d'y accéder
     $nextChap1;
     $nextChap2;
     $nextChap3;
