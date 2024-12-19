@@ -31,8 +31,8 @@
 
     <h1 class="titre1 mainTitre fade-in">Bienvenue, cher aventurier</h1>
 
-    <form method="POST">
-        <button class="boutonAventure fade-in-apres" type="submit" name="demander_aventure">
+    <form method="POST" class="formCentre">
+        <button class="boutonAnime fade-in-apres" type="submit" name="demander_aventure">
             <?php
             if($nbAdventure > 0) echo 'Continuer l\'aventure';
             else echo 'Commencer une nouvelle aventure';

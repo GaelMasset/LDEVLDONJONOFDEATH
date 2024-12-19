@@ -24,7 +24,7 @@ if ($stmt->rowCount() > 0) {
     
         echo '<tr>';
         echo '<td>' . $row['id'] . '</td>';
-        echo '<td>' . $row['name'] . '</td>';        
+        echo '<td>' . $row['item_name'] . '</td>';        
         echo '<td>' . $row['description'] . '</td>';
         echo '<td>' . $row['cheminImage'] . '</td>';
 
