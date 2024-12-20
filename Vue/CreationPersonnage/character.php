@@ -3,9 +3,6 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <?php require 'header/header.php' ?>
-        <link rel="stylesheet" href="../../header/style_header.css">
-        <link rel="stylesheet" href="style_CreationPersonnage.css">
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,21 +19,21 @@
             <p>Quelle voie choisirez-vous ?</p>
 
             <label for="optionGuerrier" class="classeOption">
-                <img id = "imgGuerrier" alt="La voie du Guerrier" src="../../images/Berserker.jpg">
+                <img id = "imgGuerrier" alt="La voie du Guerrier" src="images/Berserker.jpg">
                 <br />
                 La voie du Guerrier
             </label>
             <input name = "classe" type="radio" id="optionGuerrier" value="option1" hidden>
 
             <label for="optionMage" class="classeOption">
-                <img id="imgMage" alt="La voie du Mage" src="../../images/Magician02.jpg">
+                <img id="imgMage" alt="La voie du Mage" src="images/Magician02.jpg">
                 <br />
                 La voie du Mage
             </label>
             <input name = "classe" type="radio" id="optionMage" value="option2" hidden>
 
             <label for="optionVoleur" class="classeOption">
-                <img id="imgVoleur" alt="La voie du Voleur" src="../../images/Thief.jpg">
+                <img id="imgVoleur" alt="La voie du Voleur" src="images/Thief.jpg">
                 <br/>
                 La voie du Voleur
             </label>
@@ -57,4 +54,8 @@
             <button type = "submit" >Je suis prêt !</button>
         </form>
     </body> 
+    <script>
+        <? include 'header/style_header.css' ?>
+        <? include 'style_CreationPersonnage.css' ?>
+    </script>
 </html>
