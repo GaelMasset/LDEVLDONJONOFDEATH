@@ -5,6 +5,7 @@
 </style>
 
 
+
 <?php
 
 ini_set('display_errors', 1);
@@ -59,6 +60,40 @@ $router = new Router('LDEVLDONJONOFDEATH');
 // Ajout des routes
 $router->addRoute('', 'HomeController@index'); // Pour la racine
 $router->addRoute('battle', 'BattleController@index'); // Pour la racine
+
+
+$router->addRoute('profile', 'profileController@index');
+$router->addRoute('traitementConnexion', 'traitementConnexionController@index');
+$router->addRoute('traitementInscription', 'traitementInscriptionController@index');
+$router->addRoute('modifProfile', 'modifProfileController@index');
+$router->addRoute('panelAdmin', 'PanelAdminController@index');
+$router->addRoute('login', 'inscriptionController@index');
+$router->addRoute('ajouterItem', 'AddItemController@index');
+$router->addRoute('ajouterItemTraitement', 'AddItemTraitementController@index');
+$router->addRoute('ajouterLoot', 'AddLootController@index');
+$router->addRoute('ajouterLootTraitement', 'AddLootTraitementController@index');
+$router->addRoute('ajouterMonstre', 'AddMonsterController@index');
+$router->addRoute('ajouterMonstreTraitement', 'AddMonsterTraitementController@index');
+$router->addRoute('supprimerJoueur', 'RemovePlayerController@index');
+$router->addRoute('supprimerLoot', 'RemoveLootController@index');
+$router->addRoute('supprimerMonstre', 'RemoveMonstreController@index');
+$router->addRoute('supprimerItem', 'RemoveItemController@index');
+$router->addRoute('logout', 'LogoutController@index');
+$router->addRoute('apropos', 'AProposController@index');
+$router->addRoute('updateProfile', 'UpdateProfileController@index');
+$router->addRoute('uploadImage', 'UploadImageController@index');
+$router->addRoute('suppressionImage', 'SuppressionImageController@index');
+$router->addRoute('aventure', 'AventureController@index');
+$router->addRoute('ajouterChapitre', 'AddChapterController@index');
+$router->addRoute('ajouterChapitreTraitement', 'AddChapterTraitementController@index');
+$router->addRoute('editerChapitre', 'EditChapterController@index');
+$router->addRoute('editerChapitreTraitement', 'EditChapterTraitementController@index');
+$router->addRoute('supprimerChapitre', 'RemoveChapterController@index');
+$router->addRoute('updateChapterHero', 'UpdateChapterHeroController@index');
+
+
+
+
 for($i = 1; $i < 3; $i++){
     $router->addRoute('chapter'.$i, 'ChapterController@index'.$i); // Pour le chapitre i
 }

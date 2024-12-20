@@ -1,0 +1,71 @@
+body{
+    background-color: #1A1A1A;
+}
+
+.titreDroite{
+    text-align: center;
+}
+
+#photoActuelle{
+    display: block;
+    max-height: 30%;
+    max-width: 30%;
+    margin: 0px;
+}
+
+
+
+
+form {
+    display: flex;
+    width: 60%;
+    margin: auto;
+    padding: 20px;
+    border-radius: 8px;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 100px;
+
+}
+
+form label {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    display: block;
+    color: white;
+    font-weight: bold;
+    width: 100%;
+}
+
+form input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid #cba135;
+    border-radius: 5px;
+    font-size: 1em;
+    display: block; 
+    text-align: left;
+}
+
+
+.btn {
+    background-color: #f1c40f;
+    color: #3d3d3d;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    font-size: 1.1em;
+    cursor: pointer;
+    display: block;
+    margin-top: 20px;
+}
+
+.btn:hover {
+    background-color: #d4ac0d;
+}
+
+.btn:active {
+    background-color: #e67e22;
+}
+

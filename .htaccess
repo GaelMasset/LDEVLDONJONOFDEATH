@@ -1,3 +1,8 @@
 RewriteEngine On
 RewriteBase /LDEVLDONJONOFDEATH/
+
+# Exclure les fichiers dans le répertoire 'images' de la réécriture
+RewriteCond %{REQUEST_URI} !^/LDEVLDONJONOFDEATH/images/
+
+# Rediriger tout le reste vers index.php (routeur de votre application)
 RewriteRule ^(.*)$ index.php [QSA,L]
