@@ -14,7 +14,7 @@
         <h2>Création de personnage</h2>
         <p>Soyez prêt à entrer dans le Val Perdu...</p>
 
-        <form id = "CreationPersonnage" method = "POST" action = "traitementCharacter.php">
+        <form id = "CreationPersonnage" method = "POST" action = "traitementCharacter">
             <!-- Choix de la classe -->
             <p>Quelle voie choisirez-vous ?</p>
 
@@ -23,21 +23,21 @@
                 <br />
                 La voie du Guerrier
             </label>
-            <input name = "classe" type="radio" id="optionGuerrier" value="option1" hidden>
+            <input name = "classe" type="radio" id="optionGuerrier" value="Guerrier" hidden>
 
             <label for="optionMage" class="classeOption">
                 <img id="imgMage" alt="La voie du Mage" src="images/Magician02.jpg">
                 <br />
                 La voie du Mage
             </label>
-            <input name = "classe" type="radio" id="optionMage" value="option2" hidden>
+            <input name = "classe" type="radio" id="optionMage" value="Mage" hidden>
 
             <label for="optionVoleur" class="classeOption">
                 <img id="imgVoleur" alt="La voie du Voleur" src="images/Thief.jpg">
                 <br/>
                 La voie du Voleur
             </label>
-            <input name = "classe" type="radio" id="optionVoleur" value="option3" hidden>
+            <input name = "classe" type="radio" id="optionVoleur" value="Voleur" hidden>
 
             <!-- Choix du nom -->
             <p>Quel nom entrera dans la légende ?</p>
