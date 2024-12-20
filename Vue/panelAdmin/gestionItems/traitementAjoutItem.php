@@ -19,7 +19,7 @@ try {
         exit();
     }
     
-    $sql = "INSERT INTO Items (id, name, description, cheminImage) VALUES (:id, :name, :description, :cheminImage)";
+    $sql = "INSERT INTO Items (id, item_name, description, cheminImage) VALUES (:id, :name, :description, :cheminImage)";
     $stmt = $pdo->prepare($sql);
     $stmt->execute(['id' => $id, 'name' => $name, 'description' => $description, 'cheminImage' => $cheminImage]);
 

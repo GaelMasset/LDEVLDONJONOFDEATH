@@ -34,7 +34,7 @@ $id = $_SESSION['id'];
   $pdo = new PDO($dsn, $user, $pass);
   $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-  $sql = "SELECT * FROM Hero where idCompte = :id";
+  $sql = "SELECT * FROM hero where idCompte = :id";
   $stmt = $pdo->prepare($sql);
   $stmt->execute(['id' => $_SESSION['id']]);
   $hero = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -49,7 +49,7 @@ $id = $_SESSION['id'];
   $stmt->execute(['id' => $hero['current_chapter']]);
   $links = $stmt->fetchAll(PDO::FETCH_ASSOC); 
 
-  $sql = "SELECT * FROM `inventory` join items on inventory.item_id = items.id join hero on inventory.hero_id = hero.id where hero_id  = :id";
+  $sql = "SELECT * FROM `inventory` join Items on inventory.item_id = Items.id join hero on inventory.hero_id = hero.id where hero_id  = :id";
   $stmt = $pdo->prepare($sql);
   $stmt->execute(['id' => $hero['id']]);
   $objets = $stmt->fetchAll(PDO::FETCH_ASSOC); 

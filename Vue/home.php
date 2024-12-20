@@ -8,7 +8,7 @@
         try {
             $pdo = new PDO($dsn, $user, $pass);
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $sql = "SELECT count(*) FROM Hero WHERE idCompte = :id";
+            $sql = "SELECT count(*) FROM hero WHERE idCompte = :id";
             $stmt = $pdo->prepare($sql);
             $stmt->bindParam(':id', $_SESSION['id'], PDO::PARAM_STR);
             $stmt->execute();
