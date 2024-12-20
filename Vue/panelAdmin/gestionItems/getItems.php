@@ -3,9 +3,10 @@ include_once(__DIR__ . '/../../../bdd.php');
 $pdo = new PDO($dsn, $user, $pass);
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-$sql = "SELECT * FROM Items";
+$sql = "SELECT * FROM Items join ItemType on Items.type = ItemType.idType";
 $stmt = $pdo->prepare($sql);
 $stmt->execute();
+
 
 if ($stmt->rowCount() > 0) {
     echo '<table class="table-ordonnee">';
@@ -15,6 +16,7 @@ if ($stmt->rowCount() > 0) {
     echo '<th>Nom</th>';
     echo '<th>Description</th>';
     echo '<th>Chemin De L\'image</th>';
+    echo '<th>Type d\'item</th>';
     echo '<th>Actions</th>';
     echo '</tr>';
     echo '</thead>';
@@ -27,6 +29,7 @@ if ($stmt->rowCount() > 0) {
         echo '<td>' . $row['item_name'] . '</td>';        
         echo '<td>' . $row['description'] . '</td>';
         echo '<td>' . $row['cheminImage'] . '</td>';
+        echo '<td>' . $row['Label'] . '</td>';
 
         echo '<td>';
         echo '<form action="ajouterItem" method="POST">';
@@ -34,6 +37,7 @@ if ($stmt->rowCount() > 0) {
         echo '<input type="hidden" name="item_name" value="' .$row['item_name']. '">';
         echo '<input type="hidden" name="description" value="' .$row['description']. '">';
         echo '<input type="hidden" name="cheminImage" value="' .$row['cheminImage']. '">';
+        echo '<input type="hidden" name="Label" value="' .$row['Label']. '">';
         echo '<input type="hidden" name="modifie" value="1">';
         echo '<button type="submit" class="btn-supprimer">Modifier</button>';
         echo '</form>';
@@ -49,7 +53,7 @@ if ($stmt->rowCount() > 0) {
     
 }
 echo '<tr class="ligneAjout">
-            <td colspan="5">
+            <td colspan="6">
                 <a href="ajouterItem" class="ajouterTxt">Ajouter un item</a>
             </td>
         </tr>';

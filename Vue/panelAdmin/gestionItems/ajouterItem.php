@@ -20,6 +20,10 @@
 <body>
 
 <?php
+include ('bdd.php');
+$pdo = new PDO($dsn, $user, $pass);
+$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);  
+
 $username = $_SESSION['username'];
 $date_inscription = $_SESSION['date_inscription'];
 $prenom = $_SESSION['prenom'];
@@ -41,6 +45,11 @@ $isAdmin = $_SESSION['isAdmin'];
     } else {
         echo'<h1 class="titre1" id="titre">Ajouter un item</h1>';
     }
+
+    $sql = "select * FROM ItemType";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute();
+    $ItemTypes = $stmt->fetchAll(PDO::FETCH_ASSOC);
     ?>
     
     
@@ -59,6 +68,18 @@ $isAdmin = $_SESSION['isAdmin'];
         <label class="titre2" for="description">Image de l'item :</label>
         <input type="text" id="cheminImage" name="cheminImage" maxlength="255" required <?php if(isset($_POST['cheminImage'])) echo'value="'.$_POST['cheminImage'].'"' ?>>
         <input type="hidden" name="modifie" value="<?php $_POST['modifie'] ?>">;
+        
+        <select id="choixTypeItem" name="choixTypeItem" required>
+            <?php
+            if(isset($_POST['modifie'])) echo'<option>'. $_POST['Label'] .'</option>';
+
+            foreach($ItemTypes as $itemType){
+              echo '<option>'.$itemType['Label'].'</option>';
+            }
+            ?>
+          </select>
+        
+        
         <?php
         if(isset($_POST['modifie'])){
             echo'<input type="submit" value="Modifier l\'item">';
