@@ -90,7 +90,7 @@ $router->addRoute('editerChapitre', 'EditChapterController@index');
 $router->addRoute('editerChapitreTraitement', 'EditChapterTraitementController@index');
 $router->addRoute('supprimerChapitre', 'RemoveChapterController@index');
 $router->addRoute('updateChapterHero', 'UpdateChapterHeroController@index');
-
+$router->addRoute('traitementCharacter', 'traitementCharacterController@index');
 
 
 

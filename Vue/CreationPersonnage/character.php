@@ -54,8 +54,8 @@
             <button type = "submit" >Je suis prêt !</button>
         </form>
     </body> 
-    <script>
-        <? include 'header/style_header.css' ?>
-        <? include 'style_CreationPersonnage.css' ?>
-    </script>
+    <style>
+        <?php include 'header/style_header.css' ?> 
+        <?php include 'styles/style_CreationPersonnage.css' ?>
+    </style>
 </html>
