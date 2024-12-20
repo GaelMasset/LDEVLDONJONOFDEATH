@@ -32,7 +32,7 @@ if ($stmt->rowCount() > 0) {
         echo '<td>';
         echo '<form action="supprimerJoueur" method="POST" onsubmit="return confirm(\'Êtes-vous sûr de vouloir supprimer ce joueur ?\');">';
         echo '<input type="hidden" name="pseudo" value="' . $row['mail'] . '">';
-        echo '<button type="submit" class="btn-supprimer">Supprimer</button>';
+        echo '<button type="submit" class="buttonForm">Supprimer</button>';
         echo '</form>';
         echo '</td>';
     

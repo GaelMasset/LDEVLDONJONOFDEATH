@@ -39,12 +39,12 @@ if ($stmt->rowCount() > 0) {
         echo '<input type="hidden" name="cheminImage" value="' .$row['cheminImage']. '">';
         echo '<input type="hidden" name="Label" value="' .$row['Label']. '">';
         echo '<input type="hidden" name="modifie" value="1">';
-        echo '<button type="submit" class="btn-supprimer">Modifier</button>';
+        echo '<button type="submit" class="buttonForm">Modifier</button>';
         echo '</form>';
 
         echo '<form action="supprimerItem" method="POST" onsubmit="return confirm(\'Êtes-vous sûr de vouloir supprimer cet item ?\');">';
         echo '<input type="hidden" name="id" value="' .$row['id']. '">';
-        echo '<button type="submit" class="btn-supprimer">Supprimer</button>';
+        echo '<button type="submit" class="buttonForm">Supprimer</button>';
         echo '</form>';
         echo '</td>';
     

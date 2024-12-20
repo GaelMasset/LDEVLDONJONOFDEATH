@@ -67,7 +67,7 @@ $isAdmin = $_SESSION['isAdmin'];
        
         <label class="titre2" for="description">Image de l'item :</label>
         <input type="text" id="cheminImage" name="cheminImage" maxlength="255" required <?php if(isset($_POST['cheminImage'])) echo'value="'.$_POST['cheminImage'].'"' ?>>
-        <input type="hidden" name="modifie" value="<?php $_POST['modifie'] ?>">;
+        <input type="hidden" name="modifie" value="<?php if(isset($_POST['modifie'])) {echo $_POST['modifie'];} else {echo'/';} ?>">;
         
         <select id="choixTypeItem" name="choixTypeItem" required>
             <?php

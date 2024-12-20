@@ -17,7 +17,7 @@ try {
     }
     $type = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    if(isset($_POST['modifie'])){
+    if($_POST['modifie'] != "/"){
         $sql = "UPDATE Items set id = :id, item_name = :name, description = :description, cheminImage = :cheminImage, type = :type where id = :id";
         $stmt = $pdo->prepare($sql);
         $stmt->execute(['id' => $id, 'name' => $name, 'description' => $description, 'cheminImage' => $cheminImage, 'type' => $type['idType']]);
@@ -37,7 +37,7 @@ try {
     
     $sql = "INSERT INTO Items (id, item_name, description, cheminImage, type) VALUES (:id, :name, :description, :cheminImage, :type)";
     $stmt = $pdo->prepare($sql);
-    $stmt->execute(['id' => $id, 'name' => $name, 'description' => $description, 'cheminImage' => $cheminImage, 'type' => $type]);
+    $stmt->execute(['id' => $id, 'name' => $name, 'description' => $description, 'cheminImage' => $cheminImage, 'type' => $type['idType']]);
     }
     header('Location: panelAdmin');
     exit();

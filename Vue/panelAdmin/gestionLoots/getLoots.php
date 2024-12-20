@@ -34,7 +34,7 @@ foreach ($items as $item) {
             <td>';
                 echo '<form action="supprimerLoot" method="POST" onsubmit="return confirm(\'Êtes-vous sûr de vouloir supprimer ce loot ?\');">';
                 echo '<input type="hidden" name="id" value="' .$item['id']. '">';
-                echo '<button type="submit" class="btn-supprimer">Supprimer</button>';
+                echo '<button type="submit" class="buttonForm">Supprimer</button>';
             echo'</td>
         </tr>';
 }

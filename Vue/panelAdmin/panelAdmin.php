@@ -9,11 +9,6 @@
   
   <link rel="stylesheet" href="style.css" />
 
-  <!-- CSS !-->
-  <link rel="stylesheet" href="flexboxs.css" />
-  <link rel="stylesheet" href="styleFormulaireAjout.css" />
-  <link rel="stylesheet" href="style.css" />
-
 
   <!-- Google Fonts !-->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -93,6 +88,7 @@ $logged_in = $_SESSION['logged_in'];
 <?php 
 include __DIR__ . '/../../styles/flexboxs/flexboxsGeneral.css'; 
 include __DIR__ . '/../../styles/styleGeneral.css';
-include __DIR__ . '/../../styles/styleImages.css';  ?>;
+include __DIR__ . '/../../styles/styleImages.css';  
+?>
 </style>
 </html>

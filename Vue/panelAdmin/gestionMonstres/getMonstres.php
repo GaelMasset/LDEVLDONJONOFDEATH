@@ -46,7 +46,7 @@ foreach ($monstres as $monstre) {
             <td>';
                 echo '<form action="supprimerMonstre" method="POST" onsubmit="return confirm(\'Êtes-vous sûr de vouloir supprimer ce monstre ?\');">';
                 echo '<input type="hidden" name="id" value="' .$monstre['id']. '">';
-                echo '<button type="submit" class="btn-supprimer">Supprimer</button>';
+                echo '<button type="submit" class="buttonForm">Supprimer</button>';
             echo'</td>
         </tr>';
 }
