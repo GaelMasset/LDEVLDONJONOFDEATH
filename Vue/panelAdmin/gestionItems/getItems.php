@@ -31,6 +31,10 @@ if ($stmt->rowCount() > 0) {
         echo '<td>';
         echo '<form action="ajouterItem" method="POST">';
         echo '<input type="hidden" name="id" value="' .$row['id']. '">';
+        echo '<input type="hidden" name="item_name" value="' .$row['item_name']. '">';
+        echo '<input type="hidden" name="description" value="' .$row['description']. '">';
+        echo '<input type="hidden" name="cheminImage" value="' .$row['cheminImage']. '">';
+        echo '<input type="hidden" name="modifie" value="1">';
         echo '<button type="submit" class="btn-supprimer">Modifier</button>';
         echo '</form>';
 
