@@ -75,6 +75,23 @@ $router->addRoute('ajouterMonstre', 'AddMonsterController@index');
 $router->addRoute('ajouterMonstreTraitement', 'AddMonsterTraitementController@index');
 $router->addRoute('supprimerJoueur', 'RemovePlayerController@index');
 $router->addRoute('character', 'CharacterController@index');
+$router->addRoute('supprimerLoot', 'RemoveLootController@index');
+$router->addRoute('supprimerMonstre', 'RemoveMonstreController@index');
+$router->addRoute('supprimerItem', 'RemoveItemController@index');
+$router->addRoute('logout', 'LogoutController@index');
+$router->addRoute('apropos', 'AProposController@index');
+$router->addRoute('updateProfile', 'UpdateProfileController@index');
+$router->addRoute('uploadImage', 'UploadImageController@index');
+$router->addRoute('suppressionImage', 'SuppressionImageController@index');
+$router->addRoute('aventure', 'AventureController@index');
+$router->addRoute('ajouterChapitre', 'AddChapterController@index');
+$router->addRoute('ajouterChapitreTraitement', 'AddChapterTraitementController@index');
+$router->addRoute('editerChapitre', 'EditChapterController@index');
+$router->addRoute('editerChapitreTraitement', 'EditChapterTraitementController@index');
+$router->addRoute('supprimerChapitre', 'RemoveChapterController@index');
+$router->addRoute('updateChapterHero', 'UpdateChapterHeroController@index');
+
+
 
 
 for($i = 1; $i < 3; $i++){

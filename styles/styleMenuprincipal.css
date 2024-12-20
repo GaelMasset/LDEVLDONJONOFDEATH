@@ -1,0 +1,14 @@
+.mainTitre{
+    padding: 5px;
+}
+
+.boutonAventure{
+    margin: auto;
+    display: block;
+    height: 10%;
+    width: 30%;
+    background-color: #C4975E;
+    border: 2px solid black;
+    font-family: "Roboto";
+    font-size: 30px;
+}
