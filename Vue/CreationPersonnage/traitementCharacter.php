@@ -17,11 +17,34 @@
         try{
             $pdo = new PDO($dsn, $user, $pass);
             $requete = $pdo->prepare("SELECT into hero (name, image, biography, pv, mana, strength, initiative, xp, current_level, idCompte, current_chapter) 
-                                        values (.$classe., 'images/Berserker.jpg', .$background., 30, 0, 15, 5, 0, 1, 2 , 1)");
+                                        values (.$classe., 'images/Berserker.jpg', .$background., 30, 0, 15, 5, 0, 1, $_SESSION['id'] , 1)");
             $requete->execute();
         }catch (PDOException $e) {
         }
     }
+
+    if($classe==2){
+        try{
+            $pdo = new PDO($dsn, $user, $pass);
+            $requete = $pdo->prepare("SELECT into hero (name, image, biography, pv, mana, strength, initiative, xp, current_level, spell_list, idCompte, current_chapter) 
+                                        values (.$classe., 'images/Magician02.jpg', .$background., 10, 30, 5, 10, 0, 1, 'Boule de feu, Soin mineure',$_SESSION['id'] , 1)");
+            $requete->execute();
+        }catch (PDOException $e) {
+        }
+    }
+
+    if($classe==3){
+        try{
+            $pdo = new PDO($dsn, $user, $pass);
+            $requete = $pdo->prepare("SELECT into hero (name, image, biography, pv, mana, strength, initiative, xp, current_level, idCompte, current_chapter) 
+                                        values (.$classe., 'images/Thief.jpg', .$background., 20, 0, 10, 20, 0, 1, $_SESSION['id'] , 1)");
+            $requete->execute();
+        }catch (PDOException $e) {
+        }
+    }
+
+    header('Location: profile');
+    exit();
     
 
     //TODO : 
