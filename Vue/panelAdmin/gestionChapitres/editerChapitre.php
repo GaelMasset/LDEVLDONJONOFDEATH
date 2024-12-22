@@ -51,6 +51,15 @@ $pdo = new PDO($dsn, $user, $pass);
     if(isset($nextChapters[1]['next_chapter_id'])) $nextChap2 = $nextChapters[1];
     if(isset($nextChapters[2]['next_chapter_id'])) $nextChap3 = $nextChapters[2];
 
+    $sql = "SELECT * FROM encounter join monster on encounter.monster_id = monster.id WHERE chapter_id = :id";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute(['id' => $_POST['id']]);
+    $monstreRencontre = $stmt->fetch  (PDO::FETCH_ASSOC);
+
+    $sql = "SELECT * FROM monster";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute();
+    $monstres = $stmt->fetchALl(PDO::FETCH_ASSOC);
 
     ?>
 <main>
@@ -70,6 +79,7 @@ $pdo = new PDO($dsn, $user, $pass);
           <label for="choixChapitre1">Choisissez un chapitre :</label>
           <select id="choixChapitre1" name="choixChapitre1">
           <option><?php if(isset($nextChap1)){echo $nextChap1['next_chapter_id'];} else{echo'/';}   ?></option>
+          <option>/</option>
             <?php 
             foreach($idChapitres as $id){
               echo '<option>'.$id['id'].'</option>';
@@ -85,6 +95,7 @@ $pdo = new PDO($dsn, $user, $pass);
         <label for="choixChapitre2">Choisissez un chapitre :</label>
           <select id="choixChapitre2" name="choixChapitre2">
             <option><?php if(isset($nextChap2)){echo $nextChap2['next_chapter_id'];} else{echo'/';}   ?></option>
+            <option>/</option>
             <?php 
             foreach($idChapitres as $id){
               echo '<option >'.$id['id'].'</option>';
@@ -99,6 +110,7 @@ $pdo = new PDO($dsn, $user, $pass);
         <label for="choixChapitre3">Choisissez un chapitre :</label>
           <select id="choixChapitre3" name="choixChapitre3">
           <option><?php if(isset($nextChap3)){echo $nextChap3['next_chapter_id'];} else{echo'/';}   ?></option>
+          <option>/</option>
             <?php 
             foreach($idChapitres as $id){
               echo '<option>'.$id['id'].'</option>';
@@ -108,6 +120,16 @@ $pdo = new PDO($dsn, $user, $pass);
           <label for="id">Description du lien :</label>
           <input type="text" id="desclien3" name="desclien3" value=<?php if(isset($nextChap3)){echo $nextChap3['"description"'];} else{echo'""';} ?>>
     
+          <label for="choixMonstreRencontre">Monstre rencontré à ce chapitre ("/" si nul)</label>
+          <select id="choixMonstreRencontre" name="choixMonstreRencontre">
+          <option><?php if(isset($monstreRencontre['name'])){echo $monstreRencontre['name'];} else{echo'/';}   ?></option>
+          <option>/</option>
+            <?php 
+            foreach($monstres as $monstre){
+              echo '<option>'.$monstre['name'].'</option>';
+            }
+            ?>
+          </select>
 
         <input type="submit" value="Modifier le chapitre">
     </form>
