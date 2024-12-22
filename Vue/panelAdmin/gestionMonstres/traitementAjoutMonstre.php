@@ -24,9 +24,9 @@ try {
         exit();
     }
     
-    $sql = "INSERT INTO monster (id, name, pv, mana, initiative, strength, attack, loot_id, xp, nomImage) VALUES (:id, :name, :pv, :mana, :initiative, :strength, :attack, :loot, :xp, :nomImage)";
+    $sql = "INSERT INTO monster (name, pv, mana, initiative, strength, attack, loot_id, xp, nomImage) VALUES (:name, :pv, :mana, :initiative, :strength, :attack, :loot, :xp, :nomImage)";
     $stmt = $pdo->prepare($sql);
-    $stmt->execute(['id' => $id, 'name' => $name, 'pv' => $pv, 'mana' => $mana, 'initiative' => $initiative, 'strength' => $strength, 'attack' => $attack, 'loot' => $loot, 'xp' => $xp, 'nomImage' => $nomImage]);
+    $stmt->execute(['name' => $name, 'pv' => $pv, 'mana' => $mana, 'initiative' => $initiative, 'strength' => $strength, 'attack' => $attack, 'loot' => $loot, 'xp' => $xp, 'nomImage' => $nomImage]);
 
     header('Location: panelAdmin');
     exit();

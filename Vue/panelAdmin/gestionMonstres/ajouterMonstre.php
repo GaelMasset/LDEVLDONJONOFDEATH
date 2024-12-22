@@ -44,8 +44,6 @@ $isAdmin = $_SESSION['isAdmin'];
     <h1 class="titre" id="titre">Ajouter un monstre</h1>
 
     <form action="ajouterMonstreTraitement" method="POST" class="form-profil">
-        <label for="username">Id du monstre :</label>
-        <input type="text" id="id" name="id">
 
         <label for="username">Nom du monstre :</label>
         <input type="text" id="name" name="name">
