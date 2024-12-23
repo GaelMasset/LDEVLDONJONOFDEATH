@@ -1,7 +1,7 @@
 <?php
     //session_start();
     include_once('bdd.php');
-    //require 'header/style_header.css';
+    
 
     if(!(isset($_POST['classe'])) || !(isset($_POST['nom'])) || !(isset($_POST['background']))){
         echo("<p>Quelque chose s'est mal passé</p>");
