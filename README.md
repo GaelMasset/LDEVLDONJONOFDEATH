@@ -1,6 +1,6 @@
 # Projet "Livre dont vous êtes le héros"
 
-  Lien du projet: https://gaelmasset.github.io/LDEVLDONJONOFDEATH/
+  Lien du projet: https://gaelmasset.github.io/LDEVLDONJONOFDEATH/index.php
 
   Ce projet a été réalisé par Gael Masset, Antoine Rabuté, Lucas Demaimay, Hugo Pottier et Martin Bazoge
 
