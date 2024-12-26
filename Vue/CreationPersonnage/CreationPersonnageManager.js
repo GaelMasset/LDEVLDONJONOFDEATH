@@ -1,6 +1,6 @@
-let guerrier = document.getElementById("imgGuerrier");
-let  mage = document.getElementById("imgMage");
-let voleur = document.getElementById("imgVoleur");
-option.addEventListener("click", async () =>
+let guerrier = document.getElementById("optionGuerrier");
+let mage = document.getElementById("optionMage");
+let voleur = document.getElementById("optionVoleur");
+guerrier.addEventListener("click", async () =>
     
 );
