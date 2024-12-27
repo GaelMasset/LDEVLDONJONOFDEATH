@@ -2,7 +2,6 @@
 let affichage = document.getElementById("affichageCombat");
 let commence = document.getElementById("commence");
 let attaque = document.getElementById("attaque");
-let continu = document.getElementById("continue");
 let fuite = document.getElementById("fuite");
 let pvMonstre = document.getElementById("pvMonstre");
 
@@ -159,5 +158,5 @@ fuite.addEventListener("click", () => {
 });
 
 attaque.style.display = "none";
-continu.style.display = "none";
+
 

@@ -180,7 +180,6 @@ if(isset($_POST['bout2'])) {
             <div class="child-3-colonnes-33">
               <button id="commence" class="boutonAnime">Commencer</button>
               <button id="attaque" class="boutonAnime">Attaquer</button>
-              <button id="continue" class="boutonAnime">Continuer</button>
             </div>
             <div class="child-3-colonnes-33">
               <button id="fuite" class="boutonAnime">Fuir</button>
@@ -203,9 +202,9 @@ if(isset($_POST['bout2'])) {
           <?php
             foreach($links as $link) {
             echo '
-            <div class="child-3-colonnes-33">
+            <div class="child-3-colonnes-33" id="continu">
               <form class="formulaireAChaqueLigne" action="updateChapterHero" method="POST" class="form-profil">
-                <button class="boutonAnime">'.$link['description'].'</button>
+                <button  class="boutonAnime">'.$link['description'].'</button>
                 <input type="hidden" name="id" value="'.$link['id'].'">
               </form>
             </div>
@@ -227,6 +226,10 @@ if(isset($_POST['bout2'])) {
 
 <script>
 
+let continu = document.getElementById("continu");
+<?php if(isset($encounter['chapter_id'])){
+  echo 'continu.style.display = "none"';
+}?>
 //Fonction qui fait le menu burger
 function toggleMenu() {
   const menu = document.getElementById('menu');
