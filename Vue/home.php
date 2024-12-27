@@ -48,8 +48,7 @@
     <?php
         function commencerAventure($nbAdventure) {
             if($nbAdventure == 0){
-                //creer une nouvelle aventure
-                //Peut etre le truc d'antoine la creation d'un hero je crois
+                header("Location: character")
             }
             
             header("Location: aventure");
