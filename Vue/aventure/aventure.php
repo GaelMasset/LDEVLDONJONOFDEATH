@@ -178,7 +178,9 @@ if(isset($_POST['bout2'])) {
         <div class="child-2-lignes h30">
           <div class="div-3-colonnes-33">
             <div class="child-3-colonnes-33">
-              <button id="attaque" class="boutonAnime">Commencer</button>
+              <button id="commence" class="boutonAnime">Commencer</button>
+              <button id="attaque" class="boutonAnime">Attaquer</button>
+              <button id="continue" class="boutonAnime">Continuer</button>
             </div>
             <div class="child-3-colonnes-33">
               <button id="fuite" class="boutonAnime">Fuir</button>

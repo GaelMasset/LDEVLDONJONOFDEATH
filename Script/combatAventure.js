@@ -1,7 +1,10 @@
 
 let affichage = document.getElementById("affichageCombat");
+let commence = document.getElementById("commence");
 let attaque = document.getElementById("attaque");
+let continu = document.getElementById("continue");
 let fuite = document.getElementById("fuite");
+let pvMonstre = document.getElementById("pvMonstre");
 
 let heros = {
     
@@ -79,8 +82,6 @@ function decidePremier(heros, monstre){
     let initiativeHeros = rand(1, 6) + heros.initiative;
     let initiativeMonstre = rand(1, 6) + monstre.initiative;
 
-    console.log(initiativeHeros, initiativeMonstre);
-
     if(initiativeHeros > initiativeMonstre || (initiativeHeros == initiativeMonstre && heros.classe == "Voleur")){
         return false;
     } else {
@@ -89,24 +90,74 @@ function decidePremier(heros, monstre){
 }
 
 function attaqueDuMonstre() {
+        let a = rand(1,6) + monstre.force;
+        let d = rand(1, 6) + (heros.force / 2) + heros.bonus_armure;
+        degat = max(0, a - d);
 
+        heros.pv -= degat;
+
+        return degat;
+}   
+
+function attaqueDuHeros() {
+    degat = rand(1,6) + heros.force + heros.bonus_arme;
+
+    monstre.pv -= degat;
+
+    pvMonstre.textContent = monstre.pv;
+   
 }
 
-attaque.addEventListener("click", () => {
-    if(attaque.textContent = "Commencer") {
-        affichageCombat.textContent = "Le combat commence !";
-        if(decidePremier(heros, monstre)){
+commence.addEventListener("click", () => {
 
+    affichageCombat.textContent = "Le combat commence ! ";
+    if(decidePremier(heros, monstre)){
+        attaqueDuMonstre();           
+        affichageCombat.textContent += monstre.name + " vous prend par surprise ! Vous perdez " + degat + " PV." ;
+
+        if(heros.pv < 0){
+            affichageCombat.textContent = "Vous avez perdu ! ";
+            commence.style.display = "none";
+            continu.style.display = "block";
+            return;
         }
 
-        attaquetextContent = "Attaquer";
-    } 
-    if(attaque.textContent = "Attaquer") {
-        
+    } else {
+        affichageCombat.textContent += "Vous avez l'avantage ! ";
+    }
+    commence.style.display = "none";
+    attaque.style.display = "block";
+});
+
+attaque.addEventListener("click", () => {
+    
+    attaqueDuHeros();
+
+    affichageCombat.textContent = "Vous infligez " + degat + " PV à "+monstre.name+" ! ";
+
+    if(monstre.pv < 0){
+        affichageCombat.textContent = "Vous avez gagné ! ";
+        attaque.style.display = "none";
+        continu.style.display = "block";
+        return;
     }
 
+    attaqueDuMonstre();
+
+    affichageCombat.textContent += monstre.name + " utilise " + monstre.attack + " et vous inflige " + degat + " PV ! ";
+
+    if(heros.pv < 0){
+        affichageCombat.textContent = "Vous avez perdu ! ";
+        attaque.style.display = "none";
+        continu.style.display = "block";
+        return;
+    }
 });
 
 fuite.addEventListener("click", () => {
-    
+    console.log("fuite");
 });
+
+attaque.style.display = "none";
+continu.style.display = "none";
+
