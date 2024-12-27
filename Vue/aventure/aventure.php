@@ -199,7 +199,10 @@ if(isset($_POST['bout2'])) {
               <button id="attaque" class="boutonAnime">Attaquer</button>
             </div>
             <div class="child-3-colonnes-33">
-              <button id="fuite" class="boutonAnime">Fuir</button>
+              <form class="formulaireAChaqueLigne" action="updateChapterHero" method="POST" class="form-profil">
+                <button  class="boutonAnime">Fuite</button>
+                <input type="hidden" name="id" value="0">
+              </form>
             </div>
           </div>
         </div>
