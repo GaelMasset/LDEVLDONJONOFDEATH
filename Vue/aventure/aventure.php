@@ -43,7 +43,9 @@ $id = $_SESSION['id'];
   $stmt = $pdo->prepare($sql);
   $stmt->execute(['id' => $hero['current_chapter']]);
   $chapitre = $stmt->fetch(PDO::FETCH_ASSOC);
-  echo  $hero['current_chapter'];
+  if(!isset($hero['current_chapter'])){
+    echo'Aucun id ... ';
+  }
 
   $sql = "SELECT * FROM Encounter where chapter_id = :id";
   $stmt = $pdo->prepare($sql);
