@@ -95,9 +95,9 @@ function decidePremier(heros, monstre){
     console.log(initiativeHeros, initiativeMonstre);
 
     if(initiativeHeros > initiativeMonstre || (initiativeHeros == initiativeMonstre && heros.classe == "Voleur")){
-        combat.estMonstreTour = false;
+        return false;
     } else {
-        combat.estMonstreTour = true;
+        return true;
     }
 }
 

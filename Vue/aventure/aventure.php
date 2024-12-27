@@ -166,19 +166,19 @@ if(isset($_POST['bout2'])) {
             <div class="child-3-colonnes-33">
               <p><?php echo $monstre['name']; ?></p>
               <p>PV du monstre : <span id="pvMonstre"><?php echo $monstre['pv']; ?></span></p>
-              <p>Inititive du monstre : <span id="pvMonstre"><?php echo $monstre['initiative']; ?></span></p>
-              <p>Force du monstre : <span id="pvMonstre"><?php echo $monstre['strength']; ?></span></p>
-              <p>Mana du monstre : <span id="pvMonstre"><?php echo $monstre['mana']; ?></span></p>
+              <p>Initiative du monstre : <span ><?php echo $monstre['initiative']; ?></span></p>
+              <p>Force du monstre : <span ><?php echo $monstre['strength']; ?></span></p>
+              <p>Mana du monstre : <span ><?php echo $monstre['mana']; ?></span></p>
             </div>
           </div>
         </div>
         <div class="child-2-lignes h10">
-          <p id="affichage">Le combat commence !</p>
+          <p id="affichageCombat"></p>
         </div>
         <div class="child-2-lignes h30">
           <div class="div-3-colonnes-33">
             <div class="child-3-colonnes-33">
-              <button id="attaque" class="boutonAnime">Attaquer</button>
+              <button id="attaque" class="boutonAnime">Commencer</button>
             </div>
             <div class="child-3-colonnes-33">
               <button id="fuite" class="boutonAnime">Fuir</button>
@@ -190,6 +190,8 @@ if(isset($_POST['bout2'])) {
         require_once 'Script/combatAventure.js';
         echo "initialiserMonstre('".$monstre['name']."', ".$monstre['pv'].", ".$monstre['initiative'].", ".$monstre['strength'].", ".$monstre['mana'].", '".$monstre['attack']."', ".$monstre['loot_id'].", ".$monstre['xp'].");";
         echo "console.log(monstre);";
+        echo "initialiserHeros('".$hero['name']."', ".$hero['class_id'].", ".$hero['pv'].", ".$hero['initiative'].", ".$hero['strength'].", ".$hero['mana'].", 0, 0, ".$hero['xp'].", ".$hero['current_level'].");";
+        echo "console.log(heros);";
         echo "</script>";
       }?>  
 
