@@ -10,25 +10,26 @@
         $classe = $_POST['classe'];
         $nom = $_POST['nom'];
         $background = $_POST['background'];
-
     }
 
     if($classe==1){
         try{
             $pdo = new PDO($dsn, $user, $pass);
-            $requete = $pdo->prepare("SELECT into hero (name, image, biography, pv, mana, strength, initiative, xp, current_level, idCompte, current_chapter) 
-                                        values (.$classe., 'images/Berserker.jpg', .$background., 30, 0, 15, 5, 0, 1, $_SESSION['id'] , 1)");
-            $requete->execute();
-        }catch (PDOException $e) {
-        }
-    }
 
-    if($classe==2){
-        try{
-            $pdo = new PDO($dsn, $user, $pass);
-            $requete = $pdo->prepare("SELECT into hero (name, image, biography, pv, mana, strength, initiative, xp, current_level, spell_list, idCompte, current_chapter) 
-                                        values (.$classe., 'images/Magician02.jpg', .$background., 10, 30, 5, 10, 0, 1, 'Boule de feu, Soin mineure',$_SESSION['id'] , 1)");
-            $requete->execute();
+            // Récupérer le nombre de gens pour l'id
+            $sql = "SELECT count(*) FROM hero";
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute();
+
+            // Récupérer le résultat et le stocker dans une variable
+            $id = $stmt->fetchColumn() + 1;
+
+            $requete = $pdo->prepare("INSERT into hero (id,name, image, biography, pv, mana, strength, initiative, xp, current_level,  current_chapter) 
+                                        values (:id, :classe, 'images/Berserker.jpg', :background, 30, 0, 15, 5, 0, 1,  1)");
+            $requete->execute(['id' => $id, 'classe' => $classe, 'background'=>$background]);
+
+            header('Location: profile');
+            exit();
         }catch (PDOException $e) {
         }
     }
@@ -36,22 +37,45 @@
     if($classe==3){
         try{
             $pdo = new PDO($dsn, $user, $pass);
-            $requete = $pdo->prepare("SELECT into hero (name, image, biography, pv, mana, strength, initiative, xp, current_level, idCompte, current_chapter) 
-                                        values (.$classe., 'images/Thief.jpg', .$background., 20, 0, 10, 20, 0, 1, $_SESSION['id'] , 1)");
-            $requete->execute();
+
+            // Récupérer le nombre de gens pour l'id
+            $sql = "SELECT count(*) FROM hero";
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute();
+
+            // Récupérer le résultat et le stocker dans une variable
+            $id = $stmt->fetchColumn() + 1;
+
+            $requete = $pdo->prepare("INSERT into hero (id,name, image, biography, pv, mana, strength, initiative, xp, current_level, spell_list,  current_chapter) 
+                                        values (:id, :classe, 'images/Magician02.jpg', :background, 10, 30, 5, 10, 0, 1, 'Boule de feu, Soin mineure', 1)");
+            $requete->execute(['id' => $id, 'classe' => $classe, 'background'=>$background]);
+
+            header('Location: profile');
+            exit();
         }catch (PDOException $e) {
         }
     }
 
-    header('Location: profile');
-    exit();
-    
+    if($classe==2){
+        try{
+            $pdo = new PDO($dsn, $user, $pass);
 
-    //TODO : 
-    // faire la requête permettant de créer un nouveau personnage avec les données plus haut
-    // Une par classe
+            // Récupérer le nombre de gens pour l'id
+            $sql = "SELECT count(*) FROM hero";
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute();
 
-    //Problème : 
-    // il faut le lier a l'utilisateur en utilisant le $_SESSION
+            // Récupérer le résultat et le stocker dans une variable
+            $id = $stmt->fetchColumn() + 1;
+
+            $requete = $pdo->prepare("INSERT into hero (id,name, image, biography, pv, mana, strength, initiative, xp, current_level,  current_chapter) 
+                                        values (:id, :classe, 'images/Thief.jpg', :background, 20, 0, 10, 20, 0, 1,  1)");
+            $requete->execute(['id' => $id, 'classe' => $classe, 'background'=>$background]);
+
+            header('Location: profile');
+            exit();
+        }catch (PDOException $e) {
+        }
+    }
 
 ?>
