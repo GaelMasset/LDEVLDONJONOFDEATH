@@ -204,7 +204,7 @@ if(isset($_POST['bout2'])) {
             <div class="child-3-colonnes-33">
               <form class="formulaireAChaqueLigne" action="updateChapterHero" method="POST" class="form-profil">
                 <button  class="boutonAnime">Fuite</button>
-                <input type="hidden" name="id" value="0">
+                <input type="hidden" name="id" value="2">
               </form>
             </div>
           </div>
