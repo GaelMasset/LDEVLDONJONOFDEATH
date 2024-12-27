@@ -48,7 +48,7 @@
     <?php
         function commencerAventure($nbAdventure) {
             if($nbAdventure == 0){
-                header("Location: character")
+                header("Location: character");
             }
             
             header("Location: aventure");
