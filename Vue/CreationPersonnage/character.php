@@ -8,6 +8,8 @@
             <?php include 'styles/header.css' ?> 
             <?php include 'styles/style_CreationPersonnage.css' ?>
         </style>
+        
+        <script src="CreationPersonnageManager.js" ></script>
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,21 +25,21 @@
             <!-- Choix de la classe -->
             <p>Quelle voie choisirez-vous ?</p>
 
-            <label for="optionGuerrier" class="classeOption">
+            <label for="optionGuerrier" id = "opGuerrier" class="classeOption">
                 <img id = "imgGuerrier" alt="La voie du Guerrier" src="images/Berserker.jpg">
                 <br />
                 La voie du Guerrier
             </label>
             <input name = "classe" type="radio" id="optionGuerrier" value=1 hidden>
 
-            <label for="optionMage" class="classeOption">
+            <label for="optionMage" id = "opMage" class="classeOption">
                 <img id="imgMage" alt="La voie du Mage" src="images/Magician02.jpg">
                 <br />
                 La voie du Mage
             </label>
             <input name = "classe" type="radio" id="optionMage" value=2 hidden>
 
-            <label for="optionVoleur" class="classeOption">
+            <label for="optionVoleur" id = "opVoleur" class="classeOption">
                 <img id="imgVoleur" alt="La voie du Voleur" src="images/Thief.jpg">
                 <br/>
                 La voie du Voleur

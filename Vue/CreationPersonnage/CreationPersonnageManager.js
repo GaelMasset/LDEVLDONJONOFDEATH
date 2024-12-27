@@ -1,6 +1,10 @@
 let guerrier = document.getElementById("optionGuerrier");
 let mage = document.getElementById("optionMage");
 let voleur = document.getElementById("optionVoleur");
-guerrier.addEventListener("click", async () =>
-    
+let label;
+
+guerrier.addEventListener("click", () =>
+    guerrier.style.borderColor="#C4975E"
+    //label = document.getElementById("opGuerrier"),
+    //label.style.backgroundColor = "#C4975E"
 );

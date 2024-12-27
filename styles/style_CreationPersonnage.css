@@ -3,14 +3,13 @@ body{
     font-family: "Roboto";
     background-color: #1A1A1A;
     color: #E5E5E5;
-    
 }
 
 .classeOption {
     display: inline-block;
     cursor: pointer;
-    border: 2px solid #E5E5E5;
-    transition: border 0.2s;
+    border: 2px solid;
+    border-color: #e5e5e5;
     align-items: center;
 }
 
@@ -28,6 +27,6 @@ button{
     background-color: #C4975E;
     border: 2px solid black;
     font-family: "Roboto";
-    font-size: 30px;
+    font-size: 100%;
 
 }
