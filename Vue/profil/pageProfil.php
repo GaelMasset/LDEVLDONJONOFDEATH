@@ -35,7 +35,7 @@ $logged_in = $_SESSION['logged_in'];
                 <div class="child-2-lignes h20">
                     <div class="div-pp-info">
                         <div class="child-pp-info">
-                            <img src="images/Logo.jpg" alt="Mon image" class="imageFullDiv"/>
+                            <img src="images/Logo.png" alt="Mon image" class="imageFullDiv"/>
                         </div>
                         <div class="child-pp-info">
                             <?php

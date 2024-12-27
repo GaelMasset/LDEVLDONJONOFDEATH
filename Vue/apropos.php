@@ -28,7 +28,10 @@ $mail = $_SESSION['mail'];
 $logged_in = $_SESSION['logged_in'];
 ?>
 <main>
-    Voila cest notre site de fou
+<p>Ce site est le fruit du travail de 4 étudiants dans le cadre du projets "DungeonXplorer".</p>
+      <p>Pour jouer au jeu, il est nécessaire de s'inscrire et/ou de se connecter.</p>
+      <p>Une fois cela fait, retourner sur la page d'accueil et cliquer sur le bouton central permettra de déclencher l'aventure.</p>
+      <p>Celle-ci nécessitera de créer son personnage, d'effectuer des choix et de faire des combats</p>
 </main>
 
 <style>
