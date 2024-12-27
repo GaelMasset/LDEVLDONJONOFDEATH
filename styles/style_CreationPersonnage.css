@@ -1,0 +1,35 @@
+div{
+    margin:0 auto;
+}
+
+body{
+    font-family: "Roboto";
+    background-color: #1A1A1A;
+    color: #E5E5E5;
+}
+
+.classeOption {
+    display: inline-block;
+    cursor: pointer;
+    border: 2px solid;
+    border-color: #e5e5e5;
+    align-items: center;
+}
+
+img{
+    max-width: 100px;
+    max-height: auto;
+    align-self: center;
+}
+
+button{
+    margin: auto;
+    display: block;
+    height: 5%;
+    width: 15%;
+    background-color: #C4975E;
+    border: 2px solid black;
+    font-family: "Roboto";
+    font-size: 100%;
+
+}

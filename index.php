@@ -74,6 +74,7 @@ $router->addRoute('ajouterLootTraitement', 'AddLootTraitementController@index');
 $router->addRoute('ajouterMonstre', 'AddMonsterController@index');
 $router->addRoute('ajouterMonstreTraitement', 'AddMonsterTraitementController@index');
 $router->addRoute('supprimerJoueur', 'RemovePlayerController@index');
+$router->addRoute('character', 'CharacterController@index');
 $router->addRoute('supprimerLoot', 'RemoveLootController@index');
 $router->addRoute('supprimerMonstre', 'RemoveMonstreController@index');
 $router->addRoute('supprimerItem', 'RemoveItemController@index');
@@ -89,7 +90,7 @@ $router->addRoute('editerChapitre', 'EditChapterController@index');
 $router->addRoute('editerChapitreTraitement', 'EditChapterTraitementController@index');
 $router->addRoute('supprimerChapitre', 'RemoveChapterController@index');
 $router->addRoute('updateChapterHero', 'UpdateChapterHeroController@index');
-
+$router->addRoute('traitementCharacter', 'traitementCharacterController@index');
 
 
 
