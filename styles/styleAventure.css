@@ -190,4 +190,7 @@ p{
 
 .combat {
   border: solid #d4af37;
+  height: 100%;
+  display:block;
+  margin:auto;
 }

@@ -155,19 +155,25 @@ if(isset($_POST['bout2'])) {
         $stmt = $pdo->prepare($sql);
         $stmt->execute(['id' => $encounter['monster_id']]);
         $monstre = $stmt->fetch(PDO::FETCH_ASSOC);
+        
       ?>
 
         <div class="child-2-lignes h40">
           <div class="div-3-colonnes-33">
             <div class="child-3-colonnes-33">
-              <img src=images/<?php $monstre['nomImage'] ?>>
+              <img src=images/<?php echo $monstre['nomImage']; ?> class="combat">
             </div>
             <div class="child-3-colonnes-33">
-              <p id="pvMonstre"><?php $monstre['pv'] ?></p>
+              <p><?php echo $monstre['name']; ?></p>
+              <p>PV du monstre : <span id="pvMonstre"><?php echo $monstre['pv']; ?></span></p>
+              <p>Inititive du monstre : <span id="pvMonstre"><?php echo $monstre['initiative']; ?></span></p>
+              <p>Force du monstre : <span id="pvMonstre"><?php echo $monstre['strength']; ?></span></p>
+              <p>Mana du monstre : <span id="pvMonstre"><?php echo $monstre['mana']; ?></span></p>
             </div>
           </div>
         </div>
         <div class="child-2-lignes h10">
+          <p id="affichage">Le combat commence !</p>
         </div>
         <div class="child-2-lignes h30">
           <div class="div-3-colonnes-33">
@@ -179,7 +185,13 @@ if(isset($_POST['bout2'])) {
             </div>
           </div>
         </div>
-      <?php }?>  
+        <script>
+      <?php 
+        require_once 'Script/combatAventure.js';
+        echo "initialiserMonstre('".$monstre['name']."', ".$monstre['pv'].", ".$monstre['initiative'].", ".$monstre['strength'].", ".$monstre['mana'].", '".$monstre['attack']."', ".$monstre['loot_id'].", ".$monstre['xp'].");";
+        echo "console.log(monstre);";
+        echo "</script>";
+      }?>  
 
       <div class="child-2-lignes h10">  
         <!-- Les 3 boutons !-->      
