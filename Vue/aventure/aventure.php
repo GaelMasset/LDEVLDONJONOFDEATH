@@ -49,6 +49,22 @@ $id = $_SESSION['id'];
   $stmt->execute(['id' => $hero['current_chapter']]);
   $encounter = $stmt->fetch(PDO::FETCH_ASSOC);
 
+  $sql = "SELECT * FROM Chapter_Treasure where chapter_id = :id";
+  $stmt = $pdo->prepare($sql);
+  $stmt->execute(['id' => $hero['current_chapter']]);
+  $tresor = $stmt->fetch(PDO::FETCH_ASSOC);
+
+  $sql = "SELECT * FROM Chapter_Treasure where chapter_id = :id";
+  $stmt = $pdo->prepare($sql);
+  $stmt->execute(['id' => $hero['current_chapter']]);
+  $tresor = $stmt->fetch(PDO::FETCH_ASSOC);
+
+  if(isset($tresor['id'])){
+    $sql = "INSERT INTO inventory (hero_id, item_id) VALUES (:hero_id, :item_id)";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute(['hero_id' => $hero['id'], 'item_id' => $tresor['item_id']]);
+  }
+
   $sql = "SELECT * FROM links where chapter_id = :id";
   $stmt = $pdo->prepare($sql);
   $stmt->execute(['id' => $hero['current_chapter']]);
