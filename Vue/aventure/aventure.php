@@ -44,6 +44,11 @@ $id = $_SESSION['id'];
   $stmt->execute(['id' => $hero['current_chapter']]);
   $chapitre = $stmt->fetch(PDO::FETCH_ASSOC);
 
+  $sql = "SELECT * FROM Encounter where chapter_id = :id";
+  $stmt = $pdo->prepare($sql);
+  $stmt->execute(['id' => $hero['current_chapter']]);
+  $encounter = $stmt->fetch(PDO::FETCH_ASSOC);
+
   $sql = "SELECT * FROM links where chapter_id = :id";
   $stmt = $pdo->prepare($sql);
   $stmt->execute(['id' => $hero['current_chapter']]);
@@ -144,6 +149,38 @@ if(isset($_POST['bout2'])) {
             echo $chapitre['content'];
       ?>
       </div>
+      <!-- combat !-->
+      <?php if(isset($encounter['chapter_id'])) {
+        $sql = "SELECT * FROM monster where id = :id";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute(['id' => $encounter['monster_id']]);
+        $monstre = $stmt->fetch(PDO::FETCH_ASSOC);
+      ?>
+
+        <div class="child-2-lignes h40">
+          <div class="div-3-colonnes-33">
+            <div class="child-3-colonnes-33">
+              <img src=images/<?php $monstre['nomImage'] ?>>
+            </div>
+            <div class="child-3-colonnes-33">
+              <p id="pvMonstre"><?php $monstre['pv'] ?></p>
+            </div>
+          </div>
+        </div>
+        <div class="child-2-lignes h10">
+        </div>
+        <div class="child-2-lignes h30">
+          <div class="div-3-colonnes-33">
+            <div class="child-3-colonnes-33">
+              <button id="attaque" class="boutonAnime">Attaquer</button>
+            </div>
+            <div class="child-3-colonnes-33">
+              <button id="fuite" class="boutonAnime">Fuir</button>
+            </div>
+          </div>
+        </div>
+      <?php }?>  
+
       <div class="child-2-lignes h10">  
         <!-- Les 3 boutons !-->      
         <div class="div-3-colonnes-33">
