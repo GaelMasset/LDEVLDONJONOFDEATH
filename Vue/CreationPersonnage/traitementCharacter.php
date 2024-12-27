@@ -33,7 +33,7 @@
             $idSession = $stmt->fetchColumn();
 
             $requete = $pdo->prepare("INSERT into hero (id,name, class_id, image, biography, pv, mana, strength, initiative, xp, current_level,  current_chapter, primary_weapon, idCompte) 
-                                        values (:id, :nom, :classe, 'images/Berserker.jpg', :background, 30, 0, 15, 5, 0, 1, 1,2, :idSession)");
+                                        values (:id, :nom, :classe, 'Berserker.jpg', :background, 30, 0, 15, 5, 0, 1, 1,2, :idSession)");
             $requete->execute(['id' => $id, 'nom' => $nom, 'classe' => $classe, 'background'=>$background, 'idSession' => $idSession]);
 
             header('Location: profile');
@@ -63,7 +63,7 @@
             $idSession = $stmt->fetchColumn();
 
             $requete = $pdo->prepare("INSERT into hero (id,name, class_id, image, biography, pv, mana, strength, initiative, xp, current_level, spell_list,  current_chapter, primary_weapon, idCompte) 
-                                        values (:id, :nom ,:classe, 'images/Magician02.jpg', :background, 10, 30, 5, 10, 0, 1, 'Boule de feu, Soin mineure', 1, 4, :idSession)");
+                                        values (:id, :nom ,:classe, 'Magician02.jpg', :background, 10, 30, 5, 10, 0, 1, 'Boule de feu, Soin mineure', 1, 4, :idSession)");
             $requete->execute(['id' => $id, 'nom' => $nom, 'classe' => $classe, 'background'=>$background, 'idSession' => $idSession]);
 
             header('Location: profile');
@@ -93,7 +93,7 @@
             $idSession = $stmt->fetchColumn();
 
             $requete = $pdo->prepare("INSERT into hero (id,name, class_id, image, biography, pv, mana, strength, initiative, xp, current_level,  current_chapter, primary_weapon, idCompte) 
-                                        values (:id, :nom, :classe, 'images/Thief.jpg', :background, 20, 0, 10, 20, 0, 1,  1, 3, :idSession)");
+                                        values (:id, :nom, :classe, 'Thief.jpg', :background, 20, 0, 10, 20, 0, 1,  1, 3, :idSession)");
             $requete->execute(['id' => $id, 'nom' => $nom, 'classe' => $classe, 'background'=>$background, 'idSession' => $idSession]);
 
             header('Location: profile');
