@@ -43,11 +43,34 @@ $id = $_SESSION['id'];
   $stmt = $pdo->prepare($sql);
   $stmt->execute(['id' => $hero['current_chapter']]);
   $chapitre = $stmt->fetch(PDO::FETCH_ASSOC);
+  if(!isset($hero['current_chapter'])){
+    echo'Aucun id ... ';
+  }
 
   $sql = "SELECT * FROM Encounter where chapter_id = :id";
   $stmt = $pdo->prepare($sql);
   $stmt->execute(['id' => $hero['current_chapter']]);
   $encounter = $stmt->fetch(PDO::FETCH_ASSOC);
+
+  $sql = "SELECT * FROM Class where id = :id";
+  $stmt = $pdo->prepare($sql);
+  $stmt->execute(['id' => $hero['class_id']]);
+  $classe = $stmt->fetch(PDO::FETCH_ASSOC);
+
+  $sql = "SELECT * FROM Chapter_Treasure where chapter_id = :id";
+  $stmt = $pdo->prepare($sql);
+  $stmt->execute(['id' => $hero['current_chapter']]);
+  $tresor = $stmt->fetch(PDO::FETCH_ASSOC);
+
+  if(isset($tresor['id']) and !($tresor['obtenu'])){
+    $sql = "INSERT INTO inventory (hero_id, item_id) VALUES (:hero_id, :item_id)";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute(['hero_id' => $hero['id'], 'item_id' => $tresor['item_id']]);
+
+    $sql = "UPDATE Chapter_Treasure SET obtenu = true WHERE id = :id";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute(['id' => $tresor['id']]);
+  }
 
   $sql = "SELECT * FROM links where chapter_id = :id";
   $stmt = $pdo->prepare($sql);
@@ -94,16 +117,13 @@ if(isset($_POST['bout2'])) {
         <?php
           echo'<lu class="listeStats">';
           echo'<li><label>'.$hero['name'].'</label></li>';
-          echo'<li><label>'.'TODO : LA CLASSE'.'</label></li>';
+          echo'<li><label>Classe : '.$classe['name'].'</label></li>';
           echo'<li><label>'.$hero['biography'].'</label></li>';
           echo'<li><label>Pv : '.$hero['pv'].'</label></li>';
           echo'<li><label>Mana : '.$hero['mana'].'</label></li>';
           echo'<li><label>Force : '.$hero['strength'].'</label></li>';
           echo'<li><label>Initiative : '.$hero['initiative'].'</label></li>';
           echo'<li><label>Armure : '.$hero['armor'].'</label></li>';
-          echo'<li><label>Arme principale : '.'TODO : Arme principale'.'</label></li>';
-          echo'<li><label>Arme secondaire : '.'TODO : Arme Secondaire'.'</label></li>';
-          echo'<li><label>Bouclier : '.'TODO : Bouclier'.'</label></li>';
           echo'<li><label>XP : '.$hero['xp'].'</label></li>';
           echo'<li><label>Niveau : '.$hero['current_level'].'</label></li>';
 
@@ -182,7 +202,10 @@ if(isset($_POST['bout2'])) {
               <button id="attaque" class="boutonAnime">Attaquer</button>
             </div>
             <div class="child-3-colonnes-33">
-              <button id="fuite" class="boutonAnime">Fuir</button>
+              <form class="formulaireAChaqueLigne" action="updateChapterHero" method="POST" class="form-profil">
+                <button  class="boutonAnime">Fuite</button>
+                <input type="hidden" name="id" value="2">
+              </form>
             </div>
           </div>
         </div>

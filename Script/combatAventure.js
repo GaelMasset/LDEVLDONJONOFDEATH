@@ -2,7 +2,6 @@
 let affichage = document.getElementById("affichageCombat");
 let commence = document.getElementById("commence");
 let attaque = document.getElementById("attaque");
-let fuite = document.getElementById("fuite");
 let pvMonstre = document.getElementById("pvMonstre");
 
 let heros = {
@@ -151,10 +150,6 @@ attaque.addEventListener("click", () => {
         continu.style.display = "block";
         return;
     }
-});
-
-fuite.addEventListener("click", () => {
-    console.log("fuite");
 });
 
 attaque.style.display = "none";
