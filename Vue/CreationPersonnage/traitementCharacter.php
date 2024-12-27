@@ -1,6 +1,6 @@
 <?php
-    //session_start();
-    include_once('bdd.php');
+    session_start();
+    include 'bdd.php';
     
 
     if(!(isset($_POST['classe'])) || !(isset($_POST['nom'])) || !(isset($_POST['background']))){
@@ -25,8 +25,8 @@
             $id = $stmt->fetchColumn() + 1;
 
             $requete = $pdo->prepare("INSERT into hero (id,name, image, biography, pv, mana, strength, initiative, xp, current_level,  current_chapter, primary_weapon) 
-                                        values (:id, :classe, 'images/Berserker.jpg', :background, 30, 0, 15, 5, 0, 1, 1,2)");
-            $requete->execute(['id' => $id, 'classe' => $classe, 'background'=>$background]);
+                                        values (:id, :nom, :classe, 'images/Berserker.jpg', :background, 30, 0, 15, 5, 0, 1, 1,2)");
+            $requete->execute(['id' => $id, 'nom' => $nom, 'classe' => $classe, 'background'=>$background]);
 
             header('Location: profile');
             exit();
@@ -47,8 +47,8 @@
             $id = $stmt->fetchColumn() + 1;
 
             $requete = $pdo->prepare("INSERT into hero (id,name, image, biography, pv, mana, strength, initiative, xp, current_level, spell_list,  current_chapter, primary_weapon) 
-                                        values (:id, :classe, 'images/Magician02.jpg', :background, 10, 30, 5, 10, 0, 1, 'Boule de feu, Soin mineure', 1, 4)");
-            $requete->execute(['id' => $id, 'classe' => $classe, 'background'=>$background]);
+                                        values (:id, :nom ,:classe, 'images/Magician02.jpg', :background, 10, 30, 5, 10, 0, 1, 'Boule de feu, Soin mineure', 1, 4)");
+            $requete->execute(['id' => $id, 'nom' => $nom, 'classe' => $classe, 'background'=>$background]);
 
             header('Location: profile');
             exit();
@@ -69,8 +69,8 @@
             $id = $stmt->fetchColumn() + 1;
 
             $requete = $pdo->prepare("INSERT into hero (id,name, image, biography, pv, mana, strength, initiative, xp, current_level,  current_chapter, primary_weapon) 
-                                        values (:id, :classe, 'images/Thief.jpg', :background, 20, 0, 10, 20, 0, 1,  1, 3)");
-            $requete->execute(['id' => $id, 'classe' => $classe, 'background'=>$background]);
+                                        values (:id, :nom, :classe, 'images/Thief.jpg', :background, 20, 0, 10, 20, 0, 1,  1, 3)");
+            $requete->execute(['id' => $id, 'nom' => $nom, 'classe' => $classe, 'background'=>$background]);
 
             header('Location: profile');
             exit();

@@ -47,11 +47,15 @@
 
     <?php
         function commencerAventure($nbAdventure) {
-            if($nbAdventure == 0){
-                header("Location: character");
+            if(isset($_SESSION['id'])){
+                if($nbAdventure == 0){
+                    header("Location: character");
+                }else{
+                    header("Location: aventure");
+                }
+            }else{
+                header("Location: login");
             }
-            
-            header("Location: aventure");
         }
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['demander_aventure'])) {
