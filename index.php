@@ -59,6 +59,7 @@ $router = new Router('LDEVLDONJONOFDEATH');
 
 // Ajout des routes
 $router->addRoute('', 'HomeController@index'); // Pour la racine
+$router->addRoute('battle', 'BattleController@index'); // Pour la racine
 
 
 $router->addRoute('profile', 'profileController@index');

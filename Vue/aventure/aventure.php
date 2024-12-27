@@ -44,6 +44,11 @@ $id = $_SESSION['id'];
   $stmt->execute(['id' => $hero['current_chapter']]);
   $chapitre = $stmt->fetch(PDO::FETCH_ASSOC);
 
+  $sql = "SELECT * FROM Encounter where chapter_id = :id";
+  $stmt = $pdo->prepare($sql);
+  $stmt->execute(['id' => $hero['current_chapter']]);
+  $encounter = $stmt->fetch(PDO::FETCH_ASSOC);
+
   $sql = "SELECT * FROM links where chapter_id = :id";
   $stmt = $pdo->prepare($sql);
   $stmt->execute(['id' => $hero['current_chapter']]);
@@ -144,15 +149,62 @@ if(isset($_POST['bout2'])) {
             echo $chapitre['content'];
       ?>
       </div>
+      <!-- combat !-->
+      <?php if(isset($encounter['chapter_id'])) {
+        $sql = "SELECT * FROM monster where id = :id";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute(['id' => $encounter['monster_id']]);
+        $monstre = $stmt->fetch(PDO::FETCH_ASSOC);
+        
+      ?>
+
+        <div class="child-2-lignes h40">
+          <div class="div-3-colonnes-33">
+            <div class="child-3-colonnes-33">
+              <img src=images/<?php echo $monstre['nomImage']; ?> class="combat">
+            </div>
+            <div class="child-3-colonnes-33">
+              <p><?php echo $monstre['name']; ?></p>
+              <p>PV du monstre : <span id="pvMonstre"><?php echo $monstre['pv']; ?></span></p>
+              <p>Initiative du monstre : <span ><?php echo $monstre['initiative']; ?></span></p>
+              <p>Force du monstre : <span ><?php echo $monstre['strength']; ?></span></p>
+              <p>Mana du monstre : <span ><?php echo $monstre['mana']; ?></span></p>
+            </div>
+          </div>
+        </div>
+        <div class="child-2-lignes h10">
+          <p id="affichageCombat"></p>
+        </div>
+        <div class="child-2-lignes h30">
+          <div class="div-3-colonnes-33">
+            <div class="child-3-colonnes-33">
+              <button id="commence" class="boutonAnime">Commencer</button>
+              <button id="attaque" class="boutonAnime">Attaquer</button>
+            </div>
+            <div class="child-3-colonnes-33">
+              <button id="fuite" class="boutonAnime">Fuir</button>
+            </div>
+          </div>
+        </div>
+        <script>
+      <?php 
+        require_once 'Script/combatAventure.js';
+        echo "initialiserMonstre('".$monstre['name']."', ".$monstre['pv'].", ".$monstre['initiative'].", ".$monstre['strength'].", ".$monstre['mana'].", '".$monstre['attack']."', ".$monstre['loot_id'].", ".$monstre['xp'].");";
+        echo "console.log(monstre);";
+        echo "initialiserHeros('".$hero['name']."', ".$hero['class_id'].", ".$hero['pv'].", ".$hero['initiative'].", ".$hero['strength'].", ".$hero['mana'].", 0, 0, ".$hero['xp'].", ".$hero['current_level'].");";
+        echo "console.log(heros);";
+        echo "</script>";
+      }?>  
+
       <div class="child-2-lignes h10">  
         <!-- Les 3 boutons !-->      
         <div class="div-3-colonnes-33">
           <?php
             foreach($links as $link) {
             echo '
-            <div class="child-3-colonnes-33">
+            <div class="child-3-colonnes-33" id="continu">
               <form class="formulaireAChaqueLigne" action="updateChapterHero" method="POST" class="form-profil">
-                <button class="boutonAnime">'.$link['description'].'</button>
+                <button  class="boutonAnime">'.$link['description'].'</button>
                 <input type="hidden" name="id" value="'.$link['id'].'">
               </form>
             </div>
@@ -174,6 +226,10 @@ if(isset($_POST['bout2'])) {
 
 <script>
 
+let continu = document.getElementById("continu");
+<?php if(isset($encounter['chapter_id'])){
+  echo 'continu.style.display = "none"';
+}?>
 //Fonction qui fait le menu burger
 function toggleMenu() {
   const menu = document.getElementById('menu');

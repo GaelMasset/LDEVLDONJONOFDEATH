@@ -185,3 +185,12 @@ p{
   width: 80%;
   display: block;
 }
+
+/* ---------------------------- Combat ---------------------------------- */
+
+.combat {
+  border: solid #d4af37;
+  height: 100%;
+  display:block;
+  margin:auto;
+}
